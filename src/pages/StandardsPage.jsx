@@ -87,7 +87,7 @@ export default function StandardsPage() {
               <img
                 src={item.img}
                 alt={item.name}
-                className="w-full h-[360px] sm:h-[420px] object-cover"
+                className="w-full h-90 sm:h-105 object-cover"
                 loading="lazy"
               />
             </div>

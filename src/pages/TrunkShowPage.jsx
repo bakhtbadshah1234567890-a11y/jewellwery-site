@@ -30,7 +30,7 @@ export default function TrunkShowPage() {
           <img
             src="/pics/trunkshow-hero.jpg"
             alt="Sisters and Co boutique trunk show event"
-            className="w-full h-[360px] sm:h-[480px] object-cover"
+            className="w-full h-90 sm:h-120 object-cover"
           />
         </div>
 
@@ -53,7 +53,7 @@ export default function TrunkShowPage() {
               </div>
               <div>
                 <span className="font-mono text-xs uppercase text-neutral-500 block">Highlights</span>
-                <ul className="mt-1 space-y-1 text-sm text-neutral-600 font-mono text-xs">
+                <ul className="mt-1 space-y-1 text-neutral-600 font-mono text-xs">
                   <li>• Over 200 fine jewellery pieces available to try on in person</li>
                   <li>• 1-on-1 consultations with founder Liam Whittaker</li>
                   <li>• Live 3D Configurator access with immediate pricing</li>

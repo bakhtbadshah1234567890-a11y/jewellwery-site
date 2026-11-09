@@ -1,3 +1,8 @@
+.site-footer {
+  min-height: 610px;
+  background-color: #70001f;
+}
+
 .standards-ticker {
   overflow: hidden;
   border-bottom: 2px dotted #111;

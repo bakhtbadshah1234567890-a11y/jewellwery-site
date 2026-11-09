@@ -1,12 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-
-const standards = [
-  'Clarity and transparency at every step',
-  'Complimentary worldwide shipping',
-  'Lifetime manufacturing warranty',
-  'Every piece crafted by hand',
-]
+import FooterLogo from './FooterLogo.jsx'
 
 const shopLinks = [
   { name: 'Shop All', href: '/shop' },
@@ -18,19 +12,21 @@ const shopLinks = [
 ]
 
 const aboutLinks = [
+  { name: 'Our Story', href: '/journal' },
   { name: 'Our Standards', href: '/standards' },
-  { name: 'Bespoke Service', href: '/bespoke' },
-  { name: 'Sizing Kits', href: '/sizing-kits' },
-  { name: 'Sisters & Co Trunk Show', href: '/trunk-show' },
-  { name: 'The Journal', href: '/journal' },
+  { name: 'Our Process', href: '/standards' },
+  { name: 'Journal', href: '/journal' },
+  { name: 'Bespoke', href: '/bespoke' },
+  { name: 'FAQ', href: '/faq' },
 ]
 
 const customerLinks = [
-  { name: 'FAQ & Help', href: '/faq' },
-  { name: 'Contact Concierge', href: '/contact' },
-  { name: 'Auckland & Sydney Studios', href: '/contact' },
-  { name: 'Lifetime Warranty', href: '/standards' },
-  { name: 'Worldwide Shipping', href: '/standards' },
+  { name: 'My Account', href: '/contact' },
+  { name: 'Contact Us', href: '/contact' },
+  { name: 'Product Care', href: '/standards' },
+  { name: 'Shipping', href: '/standards' },
+  { name: 'Warranty, Repairs & Returns', href: '/standards' },
+  { name: 'Loyalty', href: '/contact' },
 ]
 
 export default function Footer() {
@@ -38,15 +34,13 @@ export default function Footer() {
 
   useEffect(() => {
     const updateTime = () => {
-      const now = new Date()
-      setTimeString(
-        now.toLocaleTimeString('en-US', {
-          hour: '2-digit',
-          minute: '2-digit',
-          second: '2-digit',
-          hour12: true,
-        })
-      )
+      const d = new Date()
+      let h = d.getHours()
+      const ampm = h >= 12 ? 'PM' : 'AM'
+      h = h % 12
+      if (h === 0) h = 12
+      const pad = (n) => (n < 10 ? '0' + n : n)
+      setTimeString(`${pad(h)}:${pad(d.getMinutes())}:${pad(d.getSeconds())} ${ampm}`)
     }
 
     updateTime()
@@ -55,50 +49,24 @@ export default function Footer() {
   }, [])
 
   return (
-    <footer className="bg-white text-neutral-900 border-t border-neutral-200" aria-label="Site footer">
-      {/* Footer Ticker */}
-      <div className="overflow-hidden border-b-2 border-dotted border-black py-4 bg-[#fbfaf8]">
-        <div className="flex w-max animate-[standards-ticker-scroll_32s_linear_infinite]">
-          {[...standards, ...standards, ...standards].map((text, i) => (
-            <span
-              key={text + i}
-              className="flex items-center gap-6 px-8 font-mono text-xs uppercase tracking-widest whitespace-nowrap text-neutral-800"
-            >
-              <span className="size-1.5 rounded-full bg-current" aria-hidden="true" />
-              <span>{text}</span>
-            </span>
-          ))}
-        </div>
-      </div>
-
-      {/* Main Footer Links */}
-      <div className="mx-auto max-w-7xl px-5 py-16 sm:px-10 lg:px-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
-          {/* Brand Column */}
-          <div className="lg:col-span-2 space-y-4">
-            <Link
-              to="/"
-              className="text-2xl sm:text-3xl font-semibold tracking-[0.14em] text-neutral-900"
-            >
-              HEIREST
-            </Link>
-            <p className="max-w-sm text-sm text-neutral-600 leading-relaxed">
-              Modern engineering with a reverence for craft. Author what others inherit — with complete clarity, visibility, and fine materials made for a lifetime of wear.
+    <footer
+      aria-label="Site footer"
+      className="bg-[#68001e] text-[#fefdfc] border-t border-dotted border-white/40 font-mono"
+    >
+      <div className="w-full px-5 sm:px-8 lg:px-14 pt-16 pb-8">
+        <div className="grid grid-cols-2 md:grid-cols-6 lg:grid-cols-12 gap-y-10 gap-x-6 lg:gap-x-8">
+          {/* Column 1: SHOP */}
+          <div className="col-span-1 md:col-span-2 lg:col-span-2">
+            <p className="text-[13px] uppercase tracking-wider text-white/50 mb-4 font-normal">
+              SHOP
             </p>
-            <div className="pt-2 font-mono text-xs uppercase tracking-wider text-neutral-500">
-              Auckland, New Zealand • Sydney, Australia
-            </div>
-          </div>
-
-          {/* Shop */}
-          <div>
-            <h4 className="font-mono text-xs uppercase tracking-widest text-neutral-900 mb-4 font-semibold">
-              Shop
-            </h4>
-            <ul className="space-y-2.5 font-mono text-xs uppercase tracking-wider text-neutral-600">
+            <ul className="space-y-2 text-[13px] leading-relaxed">
               {shopLinks.map((item) => (
                 <li key={item.name}>
-                  <Link to={item.href} className="hover:text-neutral-900 transition-colors">
+                  <Link
+                    to={item.href}
+                    className="text-[#fefdfc] transition-opacity hover:opacity-70"
+                  >
                     {item.name}
                   </Link>
                 </li>
@@ -106,15 +74,18 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* About */}
-          <div>
-            <h4 className="font-mono text-xs uppercase tracking-widest text-neutral-900 mb-4 font-semibold">
-              About
-            </h4>
-            <ul className="space-y-2.5 font-mono text-xs uppercase tracking-wider text-neutral-600">
+          {/* Column 2: ABOUT */}
+          <div className="col-span-1 md:col-span-2 lg:col-span-2">
+            <p className="text-[13px] uppercase tracking-wider text-white/50 mb-4 font-normal">
+              ABOUT
+            </p>
+            <ul className="space-y-2 text-[13px] leading-relaxed">
               {aboutLinks.map((item) => (
                 <li key={item.name}>
-                  <Link to={item.href} className="hover:text-neutral-900 transition-colors">
+                  <Link
+                    to={item.href}
+                    className="text-[#fefdfc] transition-opacity hover:opacity-70"
+                  >
                     {item.name}
                   </Link>
                 </li>
@@ -122,38 +93,50 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Customer Care */}
-          <div>
-            <h4 className="font-mono text-xs uppercase tracking-widest text-neutral-900 mb-4 font-semibold">
-              Customer Care
-            </h4>
-            <ul className="space-y-2.5 font-mono text-xs uppercase tracking-wider text-neutral-600">
+          {/* Column 3: CUSTOMER CARE */}
+          <div className="col-span-2 md:col-span-2 lg:col-span-3">
+            <p className="text-[13px] uppercase tracking-wider text-white/50 mb-4 font-normal">
+              CUSTOMER CARE
+            </p>
+            <ul className="space-y-2 text-[13px] leading-relaxed">
               {customerLinks.map((item) => (
                 <li key={item.name}>
-                  <Link to={item.href} className="hover:text-neutral-900 transition-colors">
+                  <Link
+                    to={item.href}
+                    className="text-[#fefdfc] transition-opacity hover:opacity-70"
+                  >
                     {item.name}
                   </Link>
                 </li>
               ))}
             </ul>
+          </div>
+
+          {/* Column 4: Dotted Monogram */}
+          <div className="col-span-2 md:col-span-6 lg:col-span-5 flex justify-center lg:justify-end items-start pt-2 lg:pr-8">
+            <FooterLogo className="w-40 sm:w-48 lg:w-52 h-auto" />
           </div>
         </div>
 
-        {/* Bottom Utility Bar */}
-        <div className="mt-16 pt-8 border-t border-neutral-200 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-[11px] uppercase tracking-wider text-neutral-500">
-          <div className="flex flex-wrap items-center gap-6">
-            <Link to="/faq" className="hover:text-neutral-900">Terms & Conditions</Link>
-            <Link to="/faq" className="hover:text-neutral-900">Privacy Policy</Link>
-            <Link to="/faq" className="hover:text-neutral-900">Cookies</Link>
-            <span>Site by S/A</span>
-          </div>
+        {/* Bottom Bar: Legal & Clock */}
+        <div className="mt-20 sm:mt-28 pt-6 flex flex-col md:flex-row md:items-center justify-between gap-4 text-[11px] sm:text-xs uppercase tracking-wider text-white">
+          <nav aria-label="Legal" className="flex flex-wrap items-center gap-x-6 sm:gap-x-10 gap-y-2">
+            <Link to="/faq" className="hover:opacity-70 transition-opacity">
+              TERMS &amp; CONDITIONS
+            </Link>
+            <Link to="/faq" className="hover:opacity-70 transition-opacity">
+              PRIVACY POLICY
+            </Link>
+            <Link to="/faq" className="hover:opacity-70 transition-opacity">
+              COOKIES
+            </Link>
+            <span className="hover:opacity-70 transition-opacity">
+              SITE BY S/A
+            </span>
+          </nav>
 
-          <div className="flex items-center gap-6">
-            {timeString && (
-              <span className="tabular-nums font-mono text-neutral-700 bg-neutral-100 px-2.5 py-1 rounded">
-                {timeString}
-              </span>
-            )}
+          <div className="flex items-center justify-between md:justify-end gap-6 sm:gap-10">
+            <span className="tabular-nums font-mono text-white/90">{timeString}</span>
             <span>© HEIREST, 2026</span>
           </div>
         </div>
