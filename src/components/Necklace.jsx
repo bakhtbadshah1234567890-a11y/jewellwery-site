@@ -14,7 +14,7 @@ export default function Necklace() {
         <br className="hidden sm:block" /> with total transparency.
       </p>
 
-      <h2 className="necklace-feature__headline text-lg ">
+      <h2 className="necklace-feature__headline">
         For those who choose to author what
         <br className="hidden sm:block" /> others inherit.
       </h2>

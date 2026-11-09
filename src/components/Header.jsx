@@ -40,8 +40,14 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolledPastVideo, setScrolledPastVideo] = useState(false)
   const heroRef = useRef(null)
+  const videoRef = useRef(null)
 
   useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.muted = true
+      videoRef.current.play().catch(() => {})
+    }
+
     const updateHeader = () => {
       const heroBottom = heroRef.current?.getBoundingClientRect().bottom
       setScrolledPastVideo(heroBottom !== undefined && heroBottom <= 80)
@@ -80,7 +86,7 @@ export default function Header() {
             className={`${menuOpen ? 'flex' : 'hidden'} absolute inset-x-0 top-full flex-col gap-5 border-b px-6 py-6 text-sm uppercase tracking-wide md:static md:flex md:flex-row md:items-center md:justify-center md:gap-6 md:border-0 md:bg-transparent md:p-0 lg:gap-10 ${
               scrolledPastVideo
                 ? 'border-black/10 bg-white text-black'
-                : 'border-white/20 bg-black/70 text-white'
+                : 'border-white/20 bg-black/85 text-white'
             }`}
           >
             {links.map(({ label, href }) => (
@@ -99,31 +105,32 @@ export default function Header() {
             <button type="button" className="hidden items-center gap-2 text-sm sm:flex" aria-label="Currency: New Zealand dollars">
               NZD <span aria-hidden="true" className="mt-1 border-x-4 border-t-[5px] border-x-transparent border-t-current" />
             </button>
-            <button type="button" aria-label="Search" className="hidden sm:block">
+            <button type="button" aria-label="Search" className="hidden sm:block hover:opacity-75 transition-opacity">
               <SearchIcon />
             </button>
-            <button type="button" aria-label="Account" className="hidden sm:block">
+            <button type="button" aria-label="Account" className="hidden sm:block hover:opacity-75 transition-opacity">
               <AccountIcon />
             </button>
-            <button type="button" aria-label="Shopping bag">
+            <button type="button" aria-label="Shopping bag" className="hover:opacity-75 transition-opacity">
               <BagIcon />
             </button>
             <button
               type="button"
-              className="flex size-8 flex-col items-center justify-center gap-1.5 md:hidden"
+              className="relative flex size-8 flex-col items-center justify-center gap-1.5 md:hidden"
               aria-label={menuOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={menuOpen}
               onClick={() => setMenuOpen(!menuOpen)}
             >
-              <span className="h-px w-6 bg-current" />
-              <span className="h-px w-6 bg-current" />
+              <span className={`h-px w-6 bg-current transition-transform duration-200 ${menuOpen ? 'translate-y-[3.5px] rotate-45' : ''}`} />
+              <span className={`h-px w-6 bg-current transition-transform duration-200 ${menuOpen ? '-translate-y-[3.5px] -rotate-45' : ''}`} />
             </button>
           </div>
         </div>
       </div>
 
-      <header ref={heroRef} className="relative isolate min-h-155 h-svh max-h-275 w-full overflow-hidden bg-stone-800 text-white">
+      <header ref={heroRef} className="relative isolate min-h-155 h-svh max-h-275 w-full overflow-hidden bg-stone-900 text-white">
         <video
+          ref={videoRef}
           className="absolute inset-0 -z-20 size-full object-cover"
           src="/jewel.mp4"
           autoPlay
@@ -135,14 +142,14 @@ export default function Header() {
         <div className="absolute inset-0 -z-10 bg-black/35" />
         <div className="absolute inset-x-0 bottom-0 flex flex-col gap-8 px-6 pb-8 pt-36 sm:px-10 sm:pb-10 lg:flex-row lg:items-end lg:justify-between lg:px-12">
           <div>
-            <h1 className="max-w-3xl text-lg font-normal leading-tight tracking-tight sm:text-5xl lg:text-6xl">
+            <h1 className="max-w-3xl text-3xl font-normal leading-tight tracking-tight sm:text-5xl lg:text-[3rem]">
               Author what others inherit.
             </h1>
-            <p className="mt-5 text-lg sm:text-2xl">Every decision yours. Every step visible.</p>
+            <p className="mt-4 text-base sm:text-xl text-white/90">Every decision yours. Every step visible.</p>
           </div>
           <a
             href="#bespoke"
-            className="inline-flex min-h-10 items-center justify-center border rounded-md border-white/80 px-8 text-sm uppercase transition-colors hover:bg-white hover:text-stone-900 lg:min-w-53.75"
+            className="inline-flex min-h-11 items-center justify-center border rounded-md border-white/80 px-8 text-sm uppercase tracking-wider transition-colors hover:bg-white hover:text-stone-900 lg:min-w-53.75"
           >
             Design yours
           </a>

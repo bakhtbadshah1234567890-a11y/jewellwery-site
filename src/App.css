@@ -352,7 +352,7 @@
 
 .standards-feature__image {
   display: block;
-  width: 120%;
+  width: 100%;
   height: clamp(360px, 35vw, 510px);
   object-fit: cover;
 }
