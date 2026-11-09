@@ -43,7 +43,7 @@ export default function Part1() {
 
       <div className="design-gallery__scroller" ref={galleryRef} tabIndex={0} aria-label="Scroll through ten jewellery designs">
         {designs.map((design, index) => (
-          <article className="design-gallery__card" key={design.author + design.time}>
+          <article className="design-gallery__card" key={design.image}>
             <a className="design-gallery__image-link" href="#bespoke" aria-label={`Shop this design: ${design.name}`}>
               <img
                 className="design-gallery__image"

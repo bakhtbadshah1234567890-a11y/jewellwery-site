@@ -126,7 +126,7 @@ export default function Rush() {
                   onClick={() => setActivePublication(index)}
                 >
                   <span className="press-feature__bullet" aria-hidden="true">
-                    {isActive ? '•' : ''}
+                    {isActive ? '• ' : ''}
                   </span>
                   {publication.name}
                 </button>
@@ -158,7 +158,6 @@ export default function Rush() {
           src={active.image}
           alt={active.imageAlt}
           key={active.image}
-          loading="lazy"
         />
       ) : (
         <div className="press-feature__image-placeholder" aria-hidden="true" />
