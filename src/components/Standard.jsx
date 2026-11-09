@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const standards = [
   {
@@ -28,7 +29,7 @@ export default function Standard() {
   const active = standards[activeStandard]
 
   return (
-    <section className="standards-feature" aria-labelledby="standards-feature-title">
+    <section className="standards-feature" aria-labelledby="standards-feature-title" id="standards">
       <div className="standards-feature__navigation">
         <p id="standards-feature-title" className="standards-feature__eyebrow">
           Our standards
@@ -57,9 +58,9 @@ export default function Standard() {
         role="tabpanel"
       >
         <p>{active.description}</p>
-        <a className="standards-feature__learn-more rounded-md" href="#bespoke">
-          Learn more
-        </a>
+        <Link className="standards-feature__learn-more rounded-md" to="/standards">
+          Learn more →
+        </Link>
       </div>
 
       <img

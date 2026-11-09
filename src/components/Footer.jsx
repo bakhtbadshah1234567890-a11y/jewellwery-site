@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const standards = [
   'Clarity and transparency at every step',
@@ -7,9 +8,30 @@ const standards = [
   'Every piece crafted by hand',
 ]
 
-const shopLinks = ['Shop All', 'Rings', 'Earrings', 'Necklaces', 'Bracelets', 'Pendants']
-const aboutLinks = ['Our Story', 'Our Standards', 'Our Process', 'Journal', 'Bespoke', 'FAQ']
-const customerLinks = ['My Account', 'Contact Us', 'Product Care', 'Shipping', 'Warranty, Repairs & Returns', 'Loyalty']
+const shopLinks = [
+  { name: 'Shop All', href: '/shop' },
+  { name: 'Rings', href: '/shop?cat=RINGS' },
+  { name: 'Earrings', href: '/shop?cat=EARRINGS' },
+  { name: 'Necklaces', href: '/shop?cat=NECKLACES' },
+  { name: 'Bracelets', href: '/shop?cat=BRACELETS' },
+  { name: 'Pendants', href: '/shop?cat=PENDANTS' },
+]
+
+const aboutLinks = [
+  { name: 'Our Standards', href: '/standards' },
+  { name: 'Bespoke Service', href: '/bespoke' },
+  { name: 'Sizing Kits', href: '/sizing-kits' },
+  { name: 'Sisters & Co Trunk Show', href: '/trunk-show' },
+  { name: 'The Journal', href: '/journal' },
+]
+
+const customerLinks = [
+  { name: 'FAQ & Help', href: '/faq' },
+  { name: 'Contact Concierge', href: '/contact' },
+  { name: 'Auckland & Sydney Studios', href: '/contact' },
+  { name: 'Lifetime Warranty', href: '/standards' },
+  { name: 'Worldwide Shipping', href: '/standards' },
+]
 
 export default function Footer() {
   const [timeString, setTimeString] = useState('')
@@ -54,12 +76,12 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
           {/* Brand Column */}
           <div className="lg:col-span-2 space-y-4">
-            <a
-              href="/"
+            <Link
+              to="/"
               className="text-2xl sm:text-3xl font-semibold tracking-[0.14em] text-neutral-900"
             >
               HEIREST
-            </a>
+            </Link>
             <p className="max-w-sm text-sm text-neutral-600 leading-relaxed">
               Modern engineering with a reverence for craft. Author what others inherit — with complete clarity, visibility, and fine materials made for a lifetime of wear.
             </p>
@@ -74,11 +96,11 @@ export default function Footer() {
               Shop
             </h4>
             <ul className="space-y-2.5 font-mono text-xs uppercase tracking-wider text-neutral-600">
-              {shopLinks.map((label) => (
-                <li key={label}>
-                  <a href="#shop" className="hover:text-neutral-900 transition-colors">
-                    {label}
-                  </a>
+              {shopLinks.map((item) => (
+                <li key={item.name}>
+                  <Link to={item.href} className="hover:text-neutral-900 transition-colors">
+                    {item.name}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -90,11 +112,11 @@ export default function Footer() {
               About
             </h4>
             <ul className="space-y-2.5 font-mono text-xs uppercase tracking-wider text-neutral-600">
-              {aboutLinks.map((label) => (
-                <li key={label}>
-                  <a href="#about" className="hover:text-neutral-900 transition-colors">
-                    {label}
-                  </a>
+              {aboutLinks.map((item) => (
+                <li key={item.name}>
+                  <Link to={item.href} className="hover:text-neutral-900 transition-colors">
+                    {item.name}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -106,11 +128,11 @@ export default function Footer() {
               Customer Care
             </h4>
             <ul className="space-y-2.5 font-mono text-xs uppercase tracking-wider text-neutral-600">
-              {customerLinks.map((label) => (
-                <li key={label}>
-                  <a href="#care" className="hover:text-neutral-900 transition-colors">
-                    {label}
-                  </a>
+              {customerLinks.map((item) => (
+                <li key={item.name}>
+                  <Link to={item.href} className="hover:text-neutral-900 transition-colors">
+                    {item.name}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -120,9 +142,9 @@ export default function Footer() {
         {/* Bottom Utility Bar */}
         <div className="mt-16 pt-8 border-t border-neutral-200 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-[11px] uppercase tracking-wider text-neutral-500">
           <div className="flex flex-wrap items-center gap-6">
-            <a href="#terms" className="hover:text-neutral-900">Terms & Conditions</a>
-            <a href="#privacy" className="hover:text-neutral-900">Privacy Policy</a>
-            <a href="#cookies" className="hover:text-neutral-900">Cookies</a>
+            <Link to="/faq" className="hover:text-neutral-900">Terms & Conditions</Link>
+            <Link to="/faq" className="hover:text-neutral-900">Privacy Policy</Link>
+            <Link to="/faq" className="hover:text-neutral-900">Cookies</Link>
             <span>Site by S/A</span>
           </div>
 
