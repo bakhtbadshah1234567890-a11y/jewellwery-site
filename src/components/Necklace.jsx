@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 const necklaceImage = '/pics/necklace.jpg'
 
 export default function Necklace() {
@@ -19,16 +21,16 @@ export default function Necklace() {
         <br className="hidden sm:block" /> others inherit.
       </h2>
 
-      <a className="necklace-feature__product" href="#bespoke">
+      <Link className="necklace-feature__product" to="/shop?cat=NECKLACES">
         <img src={necklaceImage} alt="Diamond necklace on a dark display" />
         <span className="necklace-feature__product-copy">
           <span className="necklace-feature__product-name">
             Bezel graduated tennis necklace - 9k yellow gold
           </span>
           <span>White lab diamond / 8tcw</span>
-          <span className="necklace-feature__shop">Shop this design</span>
+          <span className="necklace-feature__shop">Shop this design →</span>
         </span>
-      </a>
+      </Link>
     </section>
   )
 }
