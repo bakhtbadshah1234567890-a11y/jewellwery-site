@@ -10,6 +10,7 @@ import LovedConfigurations from '../components/LovedConfigurations.jsx'
 import BezelPendant from '../components/BezelPendant.jsx'
 import Reviews from '../components/Reviews.jsx'
 import Journal from '../components/Journal.jsx'
+import NewsletterSection from '../components/NewsletterSection.jsx'
 import SocialGrid from '../components/SocialGrid.jsx'
 
 export default function HomePage() {
@@ -27,6 +28,7 @@ export default function HomePage() {
       <BezelPendant />
       <Reviews />
       <Journal />
+      <NewsletterSection />
       <SocialGrid />
     </>
   )

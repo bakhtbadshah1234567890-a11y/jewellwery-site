@@ -1,21 +1,9 @@
 import { useState } from 'react'
-import { useCart } from '../context/CartContext'
+import { useCart } from '../context/useCart'
 import { Link } from 'react-router-dom'
+import { PRODUCTS } from '../data/products'
 
-const searchDirectory = [
-  { name: 'Raised Bezel Pinky Ring', category: 'Rings', href: '/shop', price: '$1,751 NZD', img: '/pics/gen-ring.png' },
-  { name: 'Georgian Pinky Ring', category: 'Rings', href: '/shop', price: '$2,050 NZD', img: '/pics/prod-ring2.png' },
-  { name: 'Pave Eternity Ring', category: 'Rings', href: '/shop', price: '$1,787 NZD', img: '/pics/prod-ring3.png' },
-  { name: 'Signature 5-Stone Ring', category: 'Rings', href: '/shop', price: '$2,672 NZD', img: '/pics/prod-ring4.png' },
-  { name: 'Prong Solitaire Necklace', category: 'Necklaces', href: '/shop', price: '$2,450 NZD', img: '/pics/gen-necklace.png' },
-  { name: 'Prong Tennis Necklace', category: 'Necklaces', href: '/shop', price: '$6,890 NZD', img: '/pics/prod-neck2.png' },
-  { name: 'Basket Stud Earrings', category: 'Earrings', href: '/shop', price: '$980 NZD', img: '/pics/prod-ear1.png' },
-  { name: 'Bezel Tennis Bracelet', category: 'Bracelets', href: '/shop', price: '$3,820 NZD', img: '/pics/gen-bracelet.png' },
-  { name: 'Ring + Bracelet Sizing Kit', category: 'Sizing', href: '/sizing-kits', price: '$15 NZD', img: '/pics/sizing-kit-1.png' },
-  { name: 'Collection: Bezel Pendant', category: 'Pendants', href: '/shop', price: '$1,890 NZD', img: '/pics/pendant-round.png' },
-]
-
-const trendingTags = ['Pinky Ring', 'Tennis Bracelet', 'Bezel Pendant', 'Eternity Ring', 'Sizing Kit']
+const trendingTags = ['Pinky Ring', 'Tennis Bracelet', 'Bezel Pendant', 'Eternity Ring', 'Emerald', 'Sapphire']
 
 export default function SearchModal() {
   const { isSearchOpen, setIsSearchOpen } = useCart()
@@ -23,16 +11,27 @@ export default function SearchModal() {
 
   if (!isSearchOpen) return null
 
-  const results = query.trim()
-    ? searchDirectory.filter(
+  const q = query.trim().toLowerCase()
+
+  const results = q
+    ? PRODUCTS.filter(
         (item) =>
-          item.name.toLowerCase().includes(query.toLowerCase()) ||
-          item.category.toLowerCase().includes(query.toLowerCase())
+          item.name.toLowerCase().includes(q) ||
+          item.category.toLowerCase().includes(q) ||
+          item.collection?.toLowerCase().includes(q) ||
+          item.metal.toLowerCase().includes(q) ||
+          item.gemstone?.toLowerCase().includes(q) ||
+          item.description.toLowerCase().includes(q)
       )
     : []
 
+  const handleClose = () => {
+    setIsSearchOpen(false)
+    setQuery('')
+  }
+
   return (
-    <div className="fixed inset-0 z-50 flex flex-col bg-white/95 backdrop-blur-md" role="dialog" aria-modal="true">
+    <div className="fixed inset-0 z-50 flex flex-col bg-white/98 backdrop-blur-md" role="dialog" aria-modal="true">
       {/* Top bar with input */}
       <div className="border-b border-neutral-200 px-6 py-6 sm:px-12">
         <div className="mx-auto flex max-w-4xl items-center justify-between gap-4">
@@ -45,7 +44,7 @@ export default function SearchModal() {
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search fine jewellery, metals, categories..."
+              placeholder="Search fine jewellery, gemstones, metals, collections..."
               autoFocus
               className="w-full bg-transparent text-lg sm:text-2xl font-light tracking-tight text-neutral-900 placeholder:text-neutral-400 focus:outline-none"
             />
@@ -53,10 +52,7 @@ export default function SearchModal() {
 
           <button
             type="button"
-            onClick={() => {
-              setIsSearchOpen(false)
-              setQuery('')
-            }}
+            onClick={handleClose}
             className="font-mono text-xs uppercase tracking-widest text-neutral-500 hover:text-neutral-900"
           >
             Esc [✕]
@@ -84,6 +80,37 @@ export default function SearchModal() {
                   </button>
                 ))}
               </div>
+
+              <div className="mt-12 pt-8 border-t border-neutral-100 grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs font-mono">
+                <Link
+                  to="/shop?cat=RINGS"
+                  onClick={handleClose}
+                  className="p-4 rounded border border-neutral-200 bg-[#FAF9F6] hover:border-neutral-900 text-center"
+                >
+                  Rings Collection →
+                </Link>
+                <Link
+                  to="/shop?cat=NECKLACES"
+                  onClick={handleClose}
+                  className="p-4 rounded border border-neutral-200 bg-[#FAF9F6] hover:border-neutral-900 text-center"
+                >
+                  Necklaces →
+                </Link>
+                <Link
+                  to="/shop?cat=EARRINGS"
+                  onClick={handleClose}
+                  className="p-4 rounded border border-neutral-200 bg-[#FAF9F6] hover:border-neutral-900 text-center"
+                >
+                  Earrings →
+                </Link>
+                <Link
+                  to="/shop?cat=PENDANTS"
+                  onClick={handleClose}
+                  className="p-4 rounded border border-neutral-200 bg-[#FAF9F6] hover:border-neutral-900 text-center"
+                >
+                  Bezel Pendants →
+                </Link>
+              </div>
             </div>
           ) : (
             <div>
@@ -92,28 +119,39 @@ export default function SearchModal() {
               </p>
 
               {results.length === 0 ? (
-                <p className="text-sm text-neutral-500 py-8">
-                  No jewellery matching &ldquo;{query}&rdquo; found. Try searching for &ldquo;Ring&rdquo;, &ldquo;Earrings&rdquo;, or &ldquo;Tennis&rdquo;.
-                </p>
+                <div className="py-12 text-center">
+                  <p className="text-base text-neutral-600 mb-2">
+                    No fine jewellery matching &ldquo;{query}&rdquo; found.
+                  </p>
+                  <p className="font-mono text-xs text-neutral-400">
+                    Try searching for &ldquo;Bezel&rdquo;, &ldquo;Ring&rdquo;, &ldquo;Emerald&rdquo;, or &ldquo;Tennis&rdquo;.
+                  </p>
+                </div>
               ) : (
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                   {results.map((item) => (
                     <Link
-                      key={item.name}
-                      to={item.href}
-                      onClick={() => {
-                        setIsSearchOpen(false)
-                        setQuery('')
-                      }}
-                      className="group flex gap-4 items-center rounded-lg border border-neutral-200 p-3 hover:border-neutral-400 bg-white"
+                      key={item.id}
+                      to={`/products/${item.slug}`}
+                      onClick={handleClose}
+                      className="group flex gap-4 rounded-lg border border-neutral-200 p-3 hover:border-neutral-900 hover:shadow-md transition-all bg-white"
                     >
-                      <img src={item.img} alt={item.name} className="size-16 object-contain bg-neutral-50 rounded" />
-                      <div>
-                        <h4 className="text-sm font-normal text-neutral-900 group-hover:underline">
+                      <div className="size-20 shrink-0 overflow-hidden rounded bg-[#FAF9F6] p-2">
+                        <img
+                          src={item.image}
+                          alt={item.name}
+                          className="size-full object-contain transition-transform duration-300 group-hover:scale-105"
+                        />
+                      </div>
+                      <div className="flex flex-col justify-center">
+                        <span className="font-mono text-[10px] uppercase text-neutral-400 tracking-wider">
+                          {item.category} • {item.collection}
+                        </span>
+                        <h3 className="text-sm font-normal text-neutral-900 group-hover:underline leading-snug">
                           {item.name}
-                        </h4>
-                        <span className="font-mono text-xs text-neutral-500 block">
-                          {item.price}
+                        </h3>
+                        <span className="font-mono text-xs font-semibold text-neutral-900 mt-1">
+                          {item.priceDisplay}
                         </span>
                       </div>
                     </Link>

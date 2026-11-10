@@ -68,7 +68,7 @@ export default function BespokePage() {
           <img
             src="/pics/bespoke-hero.jpg"
             alt="Handcrafting a bespoke diamond ring"
-            className="w-full h-[380px] sm:h-[500px] object-cover"
+            className="w-full h-95 sm:h-125 object-cover"
           />
         </div>
       </div>

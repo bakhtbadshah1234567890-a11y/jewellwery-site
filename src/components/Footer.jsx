@@ -12,21 +12,21 @@ const shopLinks = [
 ]
 
 const aboutLinks = [
-  { name: 'Our Story', href: '/journal' },
+  { name: 'Our Story', href: '/our-story' },
   { name: 'Our Standards', href: '/standards' },
-  { name: 'Our Process', href: '/standards' },
+  { name: 'Our Process', href: '/our-process' },
   { name: 'Journal', href: '/journal' },
   { name: 'Bespoke', href: '/bespoke' },
   { name: 'FAQ', href: '/faq' },
 ]
 
 const customerLinks = [
-  { name: 'My Account', href: '/contact' },
+  { name: 'My Account', href: '/account' },
   { name: 'Contact Us', href: '/contact' },
   { name: 'Product Care', href: '/standards' },
-  { name: 'Shipping', href: '/standards' },
-  { name: 'Warranty, Repairs & Returns', href: '/standards' },
-  { name: 'Loyalty', href: '/contact' },
+  { name: 'Shipping', href: '/shipping' },
+  { name: 'Warranty, Repairs & Returns', href: '/warranty' },
+  { name: 'Loyalty & Rewards', href: '/account' },
 ]
 
 export default function Footer() {
@@ -121,13 +121,13 @@ export default function Footer() {
         {/* Bottom Bar: Legal & Clock */}
         <div className="mt-20 sm:mt-28 pt-6 flex flex-col md:flex-row md:items-center justify-between gap-4 text-[11px] sm:text-xs uppercase tracking-wider text-white">
           <nav aria-label="Legal" className="flex flex-wrap items-center gap-x-6 sm:gap-x-10 gap-y-2">
-            <Link to="/faq" className="hover:opacity-70 transition-opacity">
+            <Link to="/terms" className="hover:opacity-70 transition-opacity">
               TERMS &amp; CONDITIONS
             </Link>
-            <Link to="/faq" className="hover:opacity-70 transition-opacity">
+            <Link to="/privacy-policy" className="hover:opacity-70 transition-opacity">
               PRIVACY POLICY
             </Link>
-            <Link to="/faq" className="hover:opacity-70 transition-opacity">
+            <Link to="/cookies" className="hover:opacity-70 transition-opacity">
               COOKIES
             </Link>
             <span className="hover:opacity-70 transition-opacity">

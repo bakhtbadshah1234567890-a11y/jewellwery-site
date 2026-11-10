@@ -1,7 +1,11 @@
-import { useCart } from '../context/CartContext'
+import { useState } from 'react'
+import { useCart } from '../context/useCart'
+import { Link } from 'react-router-dom'
+import { formatNZD } from '../utils/pricing'
 
 export default function CartDrawer() {
   const { cart, isCartOpen, setIsCartOpen, removeFromCart, updateQuantity, subtotal, itemCount } = useCart()
+  const [checkingOut, setCheckingOut] = useState(false)
 
   if (!isCartOpen) return null
 
@@ -20,7 +24,7 @@ export default function CartDrawer() {
         <div className="flex items-center justify-between border-b border-neutral-200 px-6 py-5">
           <div className="flex items-center gap-2">
             <h2 id="cart-drawer-title" className="font-mono text-xs uppercase tracking-widest font-semibold">
-              Your Cart
+              Shopping Bag
             </h2>
             <span className="rounded-full bg-neutral-100 px-2 py-0.5 font-mono text-[11px] text-neutral-600">
               {itemCount}
@@ -30,16 +34,16 @@ export default function CartDrawer() {
           <button
             type="button"
             onClick={() => setIsCartOpen(false)}
-            className="text-neutral-500 hover:text-neutral-900 p-1"
+            className="text-neutral-500 hover:text-neutral-900 p-1 font-mono text-xs uppercase"
             aria-label="Close cart"
           >
-            ✕
+            ✕ Close
           </button>
         </div>
 
         {/* Free Shipping Banner */}
-        <div className="bg-[#f7f6f4] px-6 py-2.5 font-mono text-[11px] uppercase tracking-wider text-neutral-700 text-center border-b border-neutral-200">
-          Complimentary Worldwide Shipping on All Orders
+        <div className="bg-[#FAF9F6] px-6 py-2.5 font-mono text-[11px] uppercase tracking-wider text-neutral-700 text-center border-b border-neutral-200">
+          Complimentary Insured Worldwide Shipping
         </div>
 
         {/* Cart Items List */}
@@ -47,23 +51,23 @@ export default function CartDrawer() {
           {cart.length === 0 ? (
             <div className="flex h-full flex-col items-center justify-center text-center py-12">
               <p className="font-mono text-sm uppercase tracking-widest text-neutral-400 mb-2">
-                Your cart is empty
+                Your shopping bag is empty
               </p>
-              <p className="text-xs text-neutral-500 mb-6">
-                Discover our bespoke designs and fine jewellery collections.
+              <p className="text-xs text-neutral-500 mb-6 max-w-xs">
+                Discover our permanent archive of bezel settings and made-to-order fine jewellery.
               </p>
-              <button
-                type="button"
+              <Link
+                to="/shop"
                 onClick={() => setIsCartOpen(false)}
                 className="rounded-md bg-neutral-900 px-6 py-2.5 font-mono text-xs uppercase tracking-widest text-white hover:opacity-85"
               >
-                Start Shopping
-              </button>
+                Explore Archive
+              </Link>
             </div>
           ) : (
             cart.map((item) => (
               <div key={item.id} className="flex gap-4 border-b border-neutral-100 pb-5">
-                <div className="size-20 shrink-0 overflow-hidden rounded bg-neutral-100 p-2">
+                <div className="size-20 shrink-0 overflow-hidden rounded bg-[#FAF9F6] border border-neutral-100 p-2">
                   <img src={item.image} alt={item.name} className="size-full object-contain" />
                 </div>
 
@@ -83,7 +87,7 @@ export default function CartDrawer() {
                       </button>
                     </div>
                     {item.details && (
-                      <p className="font-mono text-[11px] text-neutral-500 uppercase mt-0.5">
+                      <p className="font-mono text-[11px] text-neutral-500 uppercase mt-1 leading-relaxed">
                         {item.details}
                       </p>
                     )}
@@ -110,8 +114,8 @@ export default function CartDrawer() {
                       </button>
                     </div>
 
-                    <span className="font-mono text-sm font-medium text-neutral-900">
-                      ${(item.price * item.quantity).toLocaleString()} NZD
+                    <span className="font-mono text-xs font-semibold text-neutral-900">
+                      {formatNZD(item.price * item.quantity)}
                     </span>
                   </div>
                 </div>
@@ -120,27 +124,53 @@ export default function CartDrawer() {
           )}
         </div>
 
-        {/* Footer with Checkout */}
+        {/* Footer with Subtotal & Checkout */}
         {cart.length > 0 && (
           <div className="border-t border-neutral-200 p-6 space-y-4 bg-white">
             <div className="flex justify-between font-mono text-xs uppercase tracking-wider">
               <span className="text-neutral-500">Subtotal</span>
               <span className="font-semibold text-neutral-900 text-sm">
-                ${subtotal.toLocaleString()} NZD
+                {formatNZD(subtotal)}
               </span>
             </div>
 
-            <p className="font-mono text-[11px] text-neutral-400 text-center uppercase tracking-wide">
-              Taxes and duties calculated at checkout
+            <p className="font-mono text-[10px] text-neutral-400 text-center uppercase tracking-wide">
+              All taxes, duties & insured shipping included
             </p>
 
-            <button
-              type="button"
-              onClick={() => alert('Proceeding to checkout with HEIREST Secure Pay...')}
-              className="w-full rounded-md bg-neutral-900 py-3.5 font-mono text-xs uppercase tracking-widest text-white transition-opacity hover:opacity-85 shadow-sm"
-            >
-              Checkout →
-            </button>
+            {checkingOut ? (
+              <div className="rounded bg-neutral-900 p-4 text-white font-mono text-xs text-center space-y-2">
+                <p className="uppercase tracking-widest text-[#D6C2A1]">Secure Checkout Initialized</p>
+                <p className="text-[11px] text-neutral-300">
+                  Redirecting to encrypted 256-bit payment gateway...
+                </p>
+                <button
+                  type="button"
+                  onClick={() => setCheckingOut(false)}
+                  className="text-[10px] underline text-neutral-400 hover:text-white"
+                >
+                  Return to bag
+                </button>
+              </div>
+            ) : (
+              <button
+                type="button"
+                onClick={() => setCheckingOut(true)}
+                className="w-full rounded bg-neutral-900 py-3.5 font-mono text-xs uppercase tracking-widest text-white transition-opacity hover:opacity-85 shadow-sm font-semibold"
+              >
+                Proceed to Checkout →
+              </button>
+            )}
+
+            <div className="text-center">
+              <Link
+                to="/shop"
+                onClick={() => setIsCartOpen(false)}
+                className="font-mono text-[11px] uppercase tracking-wider text-neutral-500 hover:text-neutral-900 underline"
+              >
+                Continue Shopping
+              </Link>
+            </div>
           </div>
         )}
       </div>
