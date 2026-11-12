@@ -1,4 +1,5 @@
 import { useRef } from 'react'
+import { Link } from 'react-router-dom'
 
 const designs = [
   { image: '/pics/pic%201.jpg', author: '@INDIEMOXLEY', time: '11:07:26', name: 'Bezel eternity ring / 14k yellow gold / white lab diamond / oval' },
@@ -44,7 +45,7 @@ export default function Part1() {
       <div className="design-gallery__scroller" ref={galleryRef} tabIndex={0} aria-label="Scroll through ten jewellery designs">
         {designs.map((design, index) => (
           <article className="design-gallery__card" key={design.image}>
-            <a className="design-gallery__image-link" href="#bespoke" aria-label={`Shop this design: ${design.name}`}>
+            <Link className="design-gallery__image-link" to="/shop" aria-label={`Shop this design: ${design.name}`}>
               <img
                 className="design-gallery__image"
                 src={design.image}
@@ -52,7 +53,7 @@ export default function Part1() {
                 loading={index > 2 ? 'lazy' : 'eager'}
               />
               <span className="design-gallery__shop">Shop this design</span>
-            </a>
+            </Link>
             <div className="design-gallery__details">
               <div>
                 <span className="design-gallery__label">Author</span>
