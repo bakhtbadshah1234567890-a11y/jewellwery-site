@@ -5,6 +5,7 @@ import { useCart } from '../context/useCart'
 export default function AccountPage() {
   const [tab, setTab] = useState('orders') // 'orders' | 'wishlist' | 'appointments' | 'login'
   const [isLoggedIn, setIsLoggedIn] = useState(true)
+  const [resetSent, setResetSent] = useState(false)
   const { cart } = useCart()
 
   // Sample order with fabrication stages
@@ -118,9 +119,19 @@ export default function AccountPage() {
               </div>
 
               <div className="text-center pt-2">
-                <a href="#forgot" className="text-[11px] text-neutral-500 underline">
-                  Forgot your password?
-                </a>
+                {resetSent ? (
+                  <p className="text-[11px] text-emerald-700 font-mono">
+                    ✓ Password reset instructions sent to your email.
+                  </p>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={() => setResetSent(true)}
+                    className="text-[11px] text-neutral-500 underline hover:text-neutral-900"
+                  >
+                    Forgot your password?
+                  </button>
+                )}
               </div>
             </form>
           </div>

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const publications = [
   {
@@ -143,9 +144,9 @@ export default function Rush() {
             {active.paragraphs.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
             ))}
-            <a className="press-feature__read-more rounded-lg" href="#bespoke">
+            <Link className="press-feature__read-more rounded-lg" to="/journal">
               Read more
-            </a>
+            </Link>
           </>
         ) : (
           <p>More from {active.name} coming soon.</p>

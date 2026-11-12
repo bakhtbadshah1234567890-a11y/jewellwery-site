@@ -1,16 +1,39 @@
-# React + Vite
+# Luxury Fine Jewellery E-Commerce Storefront
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A responsive fine jewellery e-commerce web application built with **React 19**, **Vite 8**, **React Router 7**, and **Tailwind CSS 4**. Inspired by contemporary editorial jewellery ateliers (`heirest.com`), the storefront features an interactive multi-option configurator, dynamic product detail pages, real-time catalog filtering, slide-out cart persistence, and full brand/legal/policy routes.
 
-Currently, two official plugins are available:
+## Key Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Editorial Storefront & Mega Menu Navigation**: Slim rotating announcement bar, desktop hover mega menus for Shop categories & Collections, and an expandable mobile drawer.
+- **Interactive 4-Category Configurator** (`src/components/GenerateDesign.jsx`): Configure Rings, Necklaces, Earrings, and Bracelets across precious metals (9K/14K/18K Yellow, White, Rose Gold, Platinum), gemstones, stone cuts, carat weights, setting styles, and custom engraving with real-time pricing (`src/utils/pricing.js`).
+- **Centralized Product Catalog & Filtered Shop** (`src/data/products.js`, `src/pages/ShopPage.jsx`): Multi-facet filtering by Category, Collection, Metal, Gemstone, and Price Range synchronized with URL query parameters, sorting, wishlist toggling, and Quick View modals.
+- **Dynamic Product Detail Pages (`/products/:slug`)**: Multi-angle image gallery with hover inspection, metal/gemstone swatches, carat & finger size selectors, custom engraving, technical specification tabs, and related products.
+- **Persistent Cart & Live Catalog Search**: Slide-out shopping bag (`src/components/CartDrawer.jsx`) backed by `localStorage` and instant catalog search modal (`src/components/SearchModal.jsx`).
+- **Collection, Editorial & Client Pages**: Dedicated routes for `/collections/:slug`, `/our-story`, `/our-process`, `/standards`, `/bespoke`, `/sizing-kits`, `/trunk-show`, `/journal`, `/journal/:slug`, `/account`, `/shipping`, `/returns`, `/warranty`, `/faq`, `/contact`, `/privacy-policy`, `/terms`, and `/cookies`.
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Framework**: React 19 (`react`, `react-dom`)
+- **Routing**: React Router 7 (`react-router-dom`)
+- **Styling**: Tailwind CSS 4 (`@tailwindcss/vite`)
+- **Build & Tooling**: Vite 8, Oxlint
 
-## Expanding the Oxlint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+```bash
+# Install dependencies
+npm install
+
+# Run local development server
+npm run dev
+
+# Lint codebase
+npm run lint
+
+# Build for production
+npm run build
+```
+
+## Deployment
+
+Includes `vercel.json` and `public/_redirects` for single-page application (SPA) client-side route fallbacks on Vercel and Netlify.
