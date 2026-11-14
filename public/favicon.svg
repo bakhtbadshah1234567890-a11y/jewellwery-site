@@ -1,25 +1,123 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <!-- Soft subtle glow / backing for contrast -->
-  <circle cx="32" cy="32" r="30" fill="#FAF8F5" stroke="#EDE8E1" stroke-width="1.5"/>
-
-  <!-- Elegant Spencerian / Fine Jewellery G Monogram in deep wine burgundy -->
-  <!-- Top entry flourish -->
-  <path d="M28 20 C22 17 21 12 27 10 C33 9 40 11 44 14" 
-        stroke="#68001e" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-  
-  <!-- Main majestic bowl of the G -->
-  <path d="M44 14 C33 11 20 13 14 24 C8 35 10 47 18 53 C26 58 37 56 43 49 C47 44 48 37 47 30" 
-        stroke="#68001e" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
-
-  <!-- Inward horizontal crossbar -->
-  <path d="M47 30 L34 30" 
-        stroke="#68001e" stroke-width="2.4" stroke-linecap="round"/>
-
-  <!-- Signature descender loop -->
-  <path d="M47 30 C45 39 42 49 38 54 C34 59 29 57 29 52 C29 46 36 43 45 42" 
-        stroke="#68001e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-
-  <!-- Delicate 4-point diamond sparkle star at upper right -->
-  <path d="M46 16 Q46 20 44 20 Q46 20 46 24 Q46 20 48 20 Q46 20 46 16 Z" 
-        fill="#D6C2A1"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="none">
+  <!-- Signature Burgundy Background from Footer -->
+  <rect width="256" height="256" rx="54" fill="#68001e"/>
+  <!-- Dotted Monogram from Footer -->
+  <circle key="0" cx="119.5" cy="68.3" r="4.2" fill="#A2D4F3"/>
+  <circle key="1" cx="113.9" cy="65.5" r="4.2" fill="#A2D4F3"/>
+  <circle key="2" cx="109.0" cy="62.2" r="4.2" fill="#A2D4F3"/>
+  <circle key="3" cx="104.6" cy="58.3" r="4.2" fill="#A2D4F3"/>
+  <circle key="4" cx="101.0" cy="53.6" r="4.2" fill="#A2D4F3"/>
+  <circle key="5" cx="99.5" cy="48.1" r="4.2" fill="#A2D4F3"/>
+  <circle key="6" cx="101.4" cy="42.6" r="4.2" fill="#A2D4F3"/>
+  <circle key="7" cx="106.2" cy="38.7" r="4.2" fill="#A2D4F3"/>
+  <circle key="8" cx="111.8" cy="36.6" r="4.2" fill="#A2D4F3"/>
+  <circle key="9" cx="117.4" cy="35.8" r="4.2" fill="#A2D4F3"/>
+  <circle key="10" cx="123.4" cy="35.9" r="4.2" fill="#A2D4F3"/>
+  <circle key="11" cx="129.3" cy="36.1" r="4.2" fill="#A2D4F3"/>
+  <circle key="12" cx="135.0" cy="36.5" r="4.2" fill="#A2D4F3"/>
+  <circle key="13" cx="141.1" cy="37.1" r="4.2" fill="#A2D4F3"/>
+  <circle key="14" cx="147.1" cy="38.0" r="4.2" fill="#A2D4F3"/>
+  <circle key="15" cx="153.0" cy="39.0" r="4.2" fill="#A2D4F3"/>
+  <circle key="16" cx="158.8" cy="40.4" r="4.2" fill="#A2D4F3"/>
+  <circle key="17" cx="164.4" cy="42.0" r="4.2" fill="#A2D4F3"/>
+  <circle key="18" cx="170.0" cy="43.8" r="4.2" fill="#A2D4F3"/>
+  <circle key="19" cx="175.5" cy="46.0" r="4.2" fill="#A2D4F3"/>
+  <circle key="20" cx="180.4" cy="48.4" r="4.2" fill="#A2D4F3"/>
+  <circle key="21" cx="163.0" cy="46.2" r="4.2" fill="#A2D4F3"/>
+  <circle key="22" cx="156.5" cy="45.7" r="4.2" fill="#A2D4F3"/>
+  <circle key="23" cx="150.0" cy="45.6" r="4.2" fill="#A2D4F3"/>
+  <circle key="24" cx="143.9" cy="45.8" r="4.2" fill="#A2D4F3"/>
+  <circle key="25" cx="137.7" cy="46.4" r="4.2" fill="#A2D4F3"/>
+  <circle key="26" cx="131.7" cy="47.2" r="4.2" fill="#A2D4F3"/>
+  <circle key="27" cx="125.8" cy="48.5" r="4.2" fill="#A2D4F3"/>
+  <circle key="28" cx="120.0" cy="49.9" r="4.2" fill="#A2D4F3"/>
+  <circle key="29" cx="114.6" cy="51.9" r="4.2" fill="#A2D4F3"/>
+  <circle key="30" cx="109.2" cy="54.1" r="4.2" fill="#A2D4F3"/>
+  <circle key="31" cx="99.0" cy="60.0" r="4.2" fill="#A2D4F3"/>
+  <circle key="32" cx="94.3" cy="63.6" r="4.2" fill="#A2D4F3"/>
+  <circle key="33" cx="89.9" cy="67.6" r="4.2" fill="#A2D4F3"/>
+  <circle key="34" cx="85.6" cy="72.0" r="4.2" fill="#A2D4F3"/>
+  <circle key="35" cx="81.6" cy="76.9" r="4.2" fill="#A2D4F3"/>
+  <circle key="36" cx="77.9" cy="82.3" r="4.2" fill="#A2D4F3"/>
+  <circle key="37" cx="75.3" cy="88.0" r="4.2" fill="#A2D4F3"/>
+  <circle key="38" cx="73.1" cy="93.7" r="4.2" fill="#A2D4F3"/>
+  <circle key="39" cx="71.2" cy="99.4" r="4.2" fill="#A2D4F3"/>
+  <circle key="40" cx="69.7" cy="105.1" r="4.2" fill="#A2D4F3"/>
+  <circle key="41" cx="68.5" cy="111.5" r="4.2" fill="#A2D4F3"/>
+  <circle key="42" cx="67.7" cy="117.8" r="4.2" fill="#A2D4F3"/>
+  <circle key="43" cx="67.3" cy="124.1" r="4.2" fill="#A2D4F3"/>
+  <circle key="44" cx="67.4" cy="130.3" r="4.2" fill="#A2D4F3"/>
+  <circle key="45" cx="67.8" cy="136.5" r="4.2" fill="#A2D4F3"/>
+  <circle key="46" cx="68.8" cy="142.5" r="4.2" fill="#A2D4F3"/>
+  <circle key="47" cx="70.1" cy="148.5" r="4.2" fill="#A2D4F3"/>
+  <circle key="48" cx="71.9" cy="154.5" r="4.2" fill="#A2D4F3"/>
+  <circle key="49" cx="74.1" cy="160.4" r="4.2" fill="#A2D4F3"/>
+  <circle key="50" cx="76.8" cy="166.1" r="4.2" fill="#A2D4F3"/>
+  <circle key="51" cx="79.8" cy="171.7" r="4.2" fill="#A2D4F3"/>
+  <circle key="52" cx="82.8" cy="176.7" r="4.2" fill="#A2D4F3"/>
+  <circle key="53" cx="86.2" cy="181.4" r="4.2" fill="#A2D4F3"/>
+  <circle key="54" cx="90.5" cy="185.6" r="4.2" fill="#A2D4F3"/>
+  <circle key="55" cx="95.9" cy="188.8" r="4.2" fill="#A2D4F3"/>
+  <circle key="56" cx="101.5" cy="191.5" r="4.2" fill="#A2D4F3"/>
+  <circle key="57" cx="107.4" cy="193.6" r="4.2" fill="#A2D4F3"/>
+  <circle key="58" cx="113.4" cy="195.1" r="4.2" fill="#A2D4F3"/>
+  <circle key="59" cx="119.6" cy="196.1" r="4.2" fill="#A2D4F3"/>
+  <circle key="60" cx="125.8" cy="196.5" r="4.2" fill="#A2D4F3"/>
+  <circle key="61" cx="132.1" cy="196.4" r="4.2" fill="#A2D4F3"/>
+  <circle key="62" cx="138.4" cy="195.7" r="4.2" fill="#A2D4F3"/>
+  <circle key="63" cx="144.6" cy="194.4" r="4.2" fill="#A2D4F3"/>
+  <circle key="64" cx="150.2" cy="192.8" r="4.2" fill="#A2D4F3"/>
+  <circle key="65" cx="155.6" cy="190.7" r="4.2" fill="#A2D4F3"/>
+  <circle key="66" cx="161.0" cy="188.2" r="4.2" fill="#A2D4F3"/>
+  <circle key="67" cx="166.1" cy="185.3" r="4.2" fill="#A2D4F3"/>
+  <circle key="68" cx="170.9" cy="181.8" r="4.2" fill="#A2D4F3"/>
+  <circle key="69" cx="175.7" cy="177.9" r="4.2" fill="#A2D4F3"/>
+  <circle key="70" cx="179.0" cy="172.8" r="4.2" fill="#A2D4F3"/>
+  <circle key="71" cx="181.7" cy="167.4" r="4.2" fill="#A2D4F3"/>
+  <circle key="72" cx="183.9" cy="161.8" r="4.2" fill="#A2D4F3"/>
+  <circle key="73" cx="185.5" cy="155.9" r="4.2" fill="#A2D4F3"/>
+  <circle key="74" cx="186.9" cy="149.9" r="4.2" fill="#A2D4F3"/>
+  <circle key="75" cx="187.8" cy="143.7" r="4.2" fill="#A2D4F3"/>
+  <circle key="76" cx="188.5" cy="137.6" r="4.2" fill="#A2D4F3"/>
+  <circle key="77" cx="188.7" cy="131.4" r="4.2" fill="#A2D4F3"/>
+  <circle key="78" cx="188.5" cy="125.4" r="4.2" fill="#A2D4F3"/>
+  <circle key="79" cx="188.1" cy="119.4" r="4.2" fill="#A2D4F3"/>
+  <circle key="80" cx="187.3" cy="113.7" r="4.2" fill="#A2D4F3"/>
+  <circle key="81" cx="186.7" cy="110.3" r="4.2" fill="#A2D4F3"/>
+  <circle key="82" cx="180.6" cy="110.3" r="4.2" fill="#A2D4F3"/>
+  <circle key="83" cx="174.6" cy="110.3" r="4.2" fill="#A2D4F3"/>
+  <circle key="84" cx="168.5" cy="110.3" r="4.2" fill="#A2D4F3"/>
+  <circle key="85" cx="162.5" cy="110.3" r="4.2" fill="#A2D4F3"/>
+  <circle key="86" cx="156.5" cy="110.3" r="4.2" fill="#A2D4F3"/>
+  <circle key="87" cx="150.4" cy="110.3" r="4.2" fill="#A2D4F3"/>
+  <circle key="88" cx="184.8" cy="122.5" r="4.2" fill="#A2D4F3"/>
+  <circle key="89" cx="183.9" cy="128.6" r="4.2" fill="#A2D4F3"/>
+  <circle key="90" cx="182.7" cy="134.5" r="4.2" fill="#A2D4F3"/>
+  <circle key="91" cx="181.7" cy="140.3" r="4.2" fill="#A2D4F3"/>
+  <circle key="92" cx="180.5" cy="146.1" r="4.2" fill="#A2D4F3"/>
+  <circle key="93" cx="179.3" cy="151.8" r="4.2" fill="#A2D4F3"/>
+  <circle key="94" cx="177.9" cy="158.1" r="4.2" fill="#A2D4F3"/>
+  <circle key="95" cx="176.5" cy="164.3" r="4.2" fill="#A2D4F3"/>
+  <circle key="96" cx="175.0" cy="170.3" r="4.2" fill="#A2D4F3"/>
+  <circle key="97" cx="170.1" cy="187.9" r="4.2" fill="#A2D4F3"/>
+  <circle key="98" cx="168.3" cy="193.7" r="4.2" fill="#A2D4F3"/>
+  <circle key="99" cx="166.5" cy="199.2" r="4.2" fill="#A2D4F3"/>
+  <circle key="100" cx="164.4" cy="205.1" r="4.2" fill="#A2D4F3"/>
+  <circle key="101" cx="162.3" cy="210.5" r="4.2" fill="#A2D4F3"/>
+  <circle key="102" cx="160.0" cy="216.0" r="4.2" fill="#A2D4F3"/>
+  <circle key="103" cx="155.6" cy="219.4" r="4.2" fill="#A2D4F3"/>
+  <circle key="104" cx="149.8" cy="220.2" r="4.2" fill="#A2D4F3"/>
+  <circle key="105" cx="144.3" cy="218.5" r="4.2" fill="#A2D4F3"/>
+  <circle key="106" cx="140.0" cy="214.6" r="4.2" fill="#A2D4F3"/>
+  <circle key="107" cx="137.0" cy="209.5" r="4.2" fill="#A2D4F3"/>
+  <circle key="108" cx="135.1" cy="203.9" r="4.2" fill="#A2D4F3"/>
+  <circle key="109" cx="134.9" cy="192.0" r="4.2" fill="#A2D4F3"/>
+  <circle key="110" cx="137.9" cy="186.7" r="4.2" fill="#A2D4F3"/>
+  <circle key="111" cx="142.0" cy="182.4" r="4.2" fill="#A2D4F3"/>
+  <circle key="112" cx="146.9" cy="179.1" r="4.2" fill="#A2D4F3"/>
+  <circle key="113" cx="152.1" cy="176.5" r="4.2" fill="#A2D4F3"/>
+  <circle key="114" cx="157.6" cy="174.4" r="4.2" fill="#A2D4F3"/>
+  <circle key="115" cx="163.2" cy="172.6" r="4.2" fill="#A2D4F3"/>
+  <circle key="116" cx="169.3" cy="171.1" r="4.2" fill="#A2D4F3"/>
+  <circle key="117" cx="187.4" cy="167.7" r="4.2" fill="#A2D4F3"/>
 </svg>
