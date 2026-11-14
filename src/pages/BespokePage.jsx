@@ -57,7 +57,7 @@ export default function BespokePage() {
             Custom Commissions
           </p>
           <h1 className="text-4xl sm:text-6xl font-normal tracking-tight text-neutral-900 max-w-3xl leading-tight">
-            Build your bespoke HEIREST piece
+            Build your bespoke GEMLY piece
           </h1>
           <p className="mt-4 text-base sm:text-lg text-neutral-600 max-w-2xl leading-relaxed">
             Our bespoke service is a dedicated process for commissions that go beyond our configurator — designed with you, made to last a lifetime.
@@ -80,7 +80,7 @@ export default function BespokePage() {
             Bespoke Archive • Case Study
           </span>
           <blockquote className="text-xl sm:text-3xl font-light text-neutral-900 leading-relaxed italic max-w-4xl mx-auto">
-            &ldquo;I came to HEIREST with a sketch and a rough idea of what I wanted. What came back was a design and a 3D render that looked exactly like the ring I had in my head.&rdquo;
+            &ldquo;I came to GEMLY with a sketch and a rough idea of what I wanted. What came back was a design and a 3D render that looked exactly like the ring I had in my head.&rdquo;
           </blockquote>
           <div className="mt-6 font-mono text-xs uppercase tracking-wider text-neutral-600">
             Author: Brittany & Callum • 11:07:26 • Bespoke Oval Engagement Ring

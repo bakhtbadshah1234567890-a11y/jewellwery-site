@@ -5,7 +5,7 @@ const standardsDetail = [
     num: '01',
     name: 'Craftsmanship by Hand',
     subtitle: 'Third-Generation Master Jewellers',
-    body: 'Every HEIREST piece is finished by hand: set, polished and inspected by master jewellers with decades of heritage experience in fine jewellery creation. Modern engineering guarantees precision, while hand-finishing ensures character, warmth, and enduring quality.',
+    body: 'Every GEMLY piece is finished by hand: set, polished and inspected by master jewellers with decades of heritage experience in fine jewellery creation. Modern engineering guarantees precision, while hand-finishing ensures character, warmth, and enduring quality.',
     bullets: ['Micro-prong and bezel settings secured by hand', 'High-polish mirror finish inspected under 10x magnification', 'Custom laser and hand engravings available'],
     img: '/pics/pic%2011.webp',
   },
@@ -29,7 +29,7 @@ const standardsDetail = [
     num: '04',
     name: 'Lifetime Manufacturing Warranty',
     subtitle: 'Built for a Lifetime of Wear',
-    body: 'Your piece is made to last. Our comprehensive lifetime manufacturing warranty supports the structural integrity and craftsmanship behind every HEIREST design. We stand behind every ring, necklace, bracelet, and earring forever.',
+    body: 'Your piece is made to last. Our comprehensive lifetime manufacturing warranty supports the structural integrity and craftsmanship behind every GEMLY design. We stand behind every ring, necklace, bracelet, and earring forever.',
     bullets: ['Lifetime coverage against any manufacturing defects', 'Complimentary annual prong inspection and professional ultrasonic cleaning', 'Full repair and re-sizing support via our Auckland & Sydney studios'],
     img: '/pics/necklace.jpg',
   },
@@ -42,7 +42,7 @@ export default function StandardsPage() {
       <div className="px-5 sm:px-10 lg:px-16 mx-auto max-w-7xl mb-16">
         <div className="border-b border-neutral-200 pb-10">
           <p className="font-mono text-xs uppercase tracking-widest text-neutral-500 mb-2">
-            The HEIREST Promise
+            The GEMLY Promise
           </p>
           <h1 className="text-4xl sm:text-6xl font-normal tracking-tight text-neutral-900 max-w-3xl">
             Our Standards

@@ -479,7 +479,7 @@ function ProductDetailContent({ slug }) {
               <div className="space-y-4">
                 <p>{product.description}</p>
                 <p className="text-neutral-500 text-xs sm:text-sm">
-                  Every HEIREST creation is designed in our studio and made to endure generations of daily living. We prioritize ergonomically balanced shanks and low-sitting crowns to ensure your fine jewellery is worn, never tucked away in a safe.
+                  Every GEMLY creation is designed in our studio and made to endure generations of daily living. We prioritize ergonomically balanced shanks and low-sitting crowns to ensure your fine jewellery is worn, never tucked away in a safe.
                 </p>
               </div>
             )}
@@ -540,7 +540,7 @@ function ProductDetailContent({ slug }) {
             {activeTab === 'warranty' && (
               <div className="space-y-3 font-mono text-xs sm:text-sm">
                 <p>
-                  Every HEIREST piece includes our unconditional Lifetime Manufacturing Guarantee against metallurgical or setting defects.
+                  Every GEMLY piece includes our unconditional Lifetime Manufacturing Guarantee against metallurgical or setting defects.
                 </p>
                 <p className="text-neutral-500">
                   Includes complimentary annual prong tightening, ultrasonic cleaning, and repolishing at no charge.

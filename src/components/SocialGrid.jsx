@@ -1,12 +1,12 @@
 import { useState } from 'react'
 
 const socialImages = [
-  { src: '/pics/social-1.png', alt: 'HEIREST bespoke diamond ring' },
-  { src: '/pics/social-2.jpg', alt: 'HEIREST tennis bracelet style' },
-  { src: '/pics/social-3.jpg', alt: 'HEIREST layered tennis necklace' },
+  { src: '/pics/social-1.png', alt: 'GEMLY bespoke diamond ring' },
+  { src: '/pics/social-2.jpg', alt: 'GEMLY tennis bracelet style' },
+  { src: '/pics/social-3.jpg', alt: 'GEMLY layered tennis necklace' },
   { src: '/pics/social-4.jpg', alt: 'Editorial jewellery workshop' },
-  { src: '/pics/social-5.png', alt: 'HEIREST community lifestyle' },
-  { src: '/pics/social-6.png', alt: 'HEIREST drop earrings in gold' },
+  { src: '/pics/social-5.png', alt: 'GEMLY community lifestyle' },
+  { src: '/pics/social-6.png', alt: 'GEMLY drop earrings in gold' },
 ]
 
 export default function SocialGrid() {
@@ -33,7 +33,7 @@ export default function SocialGrid() {
               rel="noreferrer"
               className="hover:opacity-75 transition-opacity"
             >
-              @heirest__
+              @gemly__
             </a>
           </h2>
         </div>
@@ -70,7 +70,7 @@ export default function SocialGrid() {
 
           {subscribed ? (
             <p className="font-mono text-xs uppercase tracking-wider text-green-700 bg-green-50 py-3 rounded">
-              Thank you for subscribing to HEIREST.
+              Thank you for subscribing to GEMLY.
             </p>
           ) : (
             <form onSubmit={handleSubmit} className="flex gap-2 max-w-md mx-auto">

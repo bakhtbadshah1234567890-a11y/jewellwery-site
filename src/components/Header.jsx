@@ -175,9 +175,9 @@ export default function Header() {
           <Link
             to="/"
             className="shrink-0 text-[1.65rem] font-semibold tracking-[0.16em] sm:text-[2rem] transition-opacity hover:opacity-85 font-sans"
-            aria-label="Heirest home"
+            aria-label="Gemly home"
           >
-            HEIREST
+            GEMLY
           </Link>
 
           {/* Desktop Navigation in Center */}

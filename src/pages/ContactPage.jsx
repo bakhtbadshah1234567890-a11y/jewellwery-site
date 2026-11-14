@@ -48,7 +48,7 @@ export default function ContactPage() {
               <h2 className="text-xl font-medium text-neutral-900 mb-3">Direct Contact</h2>
               <div className="space-y-2 font-mono text-xs text-neutral-700">
                 <p>
-                  <span className="text-neutral-400">Email:</span> concierge@heirest.com
+                  <span className="text-neutral-400">Email:</span> concierge@gemly.com
                 </p>
                 <p>
                   <span className="text-neutral-400">Phone (NZ):</span> +64 9 887 6420

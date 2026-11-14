@@ -8,7 +8,7 @@ export default function JournalPage() {
         {/* Header */}
         <div className="border-b border-neutral-200 pb-10 mb-12">
           <p className="font-mono text-xs uppercase tracking-widest text-neutral-500 mb-2">
-            The HEIREST Archive
+            The GEMLY Archive
           </p>
           <h1 className="text-4xl sm:text-6xl font-normal tracking-tight text-neutral-900">
             Journal

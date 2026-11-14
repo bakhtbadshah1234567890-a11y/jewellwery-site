@@ -12,7 +12,7 @@ export default function OurStoryPage() {
           Fine jewellery reimagined for modern heirlooms.
         </h1>
         <p className="mt-6 text-base sm:text-lg text-neutral-600 font-light leading-relaxed max-w-3xl mx-auto">
-          HEIREST was founded on a singular conviction: that extraordinary fine jewellery should be defined by impeccable craftsmanship, transparent integrity, and personal storytelling—not antiquated markups or opaque supply chains.
+          GEMLY was founded on a singular conviction: that extraordinary fine jewellery should be defined by impeccable craftsmanship, transparent integrity, and personal storytelling—not antiquated markups or opaque supply chains.
         </p>
       </div>
 
@@ -61,7 +61,7 @@ export default function OurStoryPage() {
             "Jewellery should not be preserved in dark velvet boxes for rare occasions. We design pieces of architectural balance and tactile comfort intended to be lived in, layered, and loved every single day."
           </blockquote>
           <div className="mt-6 font-mono text-xs uppercase tracking-widest text-neutral-500">
-            — HEIREST Atelier Guild
+            — GEMLY Atelier Guild
           </div>
         </div>
       </section>

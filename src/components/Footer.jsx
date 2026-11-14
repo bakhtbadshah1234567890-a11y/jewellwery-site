@@ -137,7 +137,7 @@ export default function Footer() {
 
           <div className="flex items-center justify-between md:justify-end gap-6 sm:gap-10">
             <span className="tabular-nums font-mono text-white/90">{timeString}</span>
-            <span>© HEIREST, 2026</span>
+            <span>© GEMLY, 2026</span>
           </div>
         </div>
       </div>

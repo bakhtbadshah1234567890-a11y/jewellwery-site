@@ -22,7 +22,7 @@ export default function CookiesPage() {
           Cookie Policy & Preferences
         </h1>
         <div className="text-xs font-mono text-neutral-500 mb-10 pb-4 border-b border-neutral-200">
-          Last Updated: January 2026 • HEIREST Fine Jewellery Ltd.
+          Last Updated: January 2026 • GEMLY Fine Jewellery Ltd.
         </div>
 
         <div className="space-y-8 text-neutral-700 leading-relaxed text-sm sm:text-base">

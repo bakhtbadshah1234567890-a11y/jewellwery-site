@@ -7,14 +7,14 @@ export default function PrivacyPage() {
           Privacy Policy
         </h1>
         <div className="text-xs font-mono text-neutral-500 mb-10 pb-4 border-b border-neutral-200">
-          Last Updated: January 2026 • HEIREST Fine Jewellery Ltd.
+          Last Updated: January 2026 • GEMLY Fine Jewellery Ltd.
         </div>
 
         <div className="space-y-8 text-neutral-700 leading-relaxed text-sm sm:text-base">
           <section>
             <h2 className="text-xl font-normal text-neutral-900 mb-3">1. Overview & Commitment</h2>
             <p>
-              At HEIREST ("we", "our", or "us"), protecting your privacy and confidential purchase data is fundamental. This Privacy Policy outlines the personal data we collect when you browse our boutique website, consult for bespoke commissions, or purchase fine jewellery.
+              At GEMLY ("we", "our", or "us"), protecting your privacy and confidential purchase data is fundamental. This Privacy Policy outlines the personal data we collect when you browse our boutique website, consult for bespoke commissions, or purchase fine jewellery.
             </p>
           </section>
 
@@ -45,7 +45,7 @@ export default function PrivacyPage() {
           <section>
             <h2 className="text-xl font-normal text-neutral-900 mb-3">5. Data Retention & Your Rights</h2>
             <p>
-              You maintain the right to access, rectify, or request the deletion of your personal records at any time. For lifetime warranty tracking, purchase serial numbers are securely archived unless you request their revocation. For inquiries, email concierge@heirest.com.
+              You maintain the right to access, rectify, or request the deletion of your personal records at any time. For lifetime warranty tracking, purchase serial numbers are securely archived unless you request their revocation. For inquiries, email concierge@gemly.com.
             </p>
           </section>
         </div>

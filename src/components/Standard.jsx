@@ -5,7 +5,7 @@ const standards = [
   {
     name: 'Craft',
     description:
-      'Every HEIREST piece is finished by hand: set, polished and inspected by third-generation jewellers with decades of experience in fine jewellery creation. Modern engineering ensures precision and consistency at every step.',
+      'Every GEMLY piece is finished by hand: set, polished and inspected by third-generation jewellers with decades of experience in fine jewellery creation. Modern engineering ensures precision and consistency at every step.',
   },
   {
     name: 'Quality',
@@ -20,7 +20,7 @@ const standards = [
   {
     name: 'Warranty',
     description:
-      'Your piece is made to last. Our lifetime manufacturing warranty supports the quality and craftsmanship behind every HEIREST design.',
+      'Your piece is made to last. Our lifetime manufacturing warranty supports the quality and craftsmanship behind every GEMLY design.',
   },
 ]
 

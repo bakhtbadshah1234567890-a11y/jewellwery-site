@@ -12,7 +12,7 @@ export default function WarrantyPage() {
           Lifetime Manufacturing Warranty
         </h1>
         <p className="mt-6 text-base sm:text-lg text-neutral-600 font-light leading-relaxed max-w-2xl mx-auto">
-          Every HEIREST fine jewellery piece is engineered to become an enduring heirloom. We guarantee every creation against manufacturing and structural defects for life.
+          Every GEMLY fine jewellery piece is engineered to become an enduring heirloom. We guarantee every creation against manufacturing and structural defects for life.
         </p>
       </div>
 

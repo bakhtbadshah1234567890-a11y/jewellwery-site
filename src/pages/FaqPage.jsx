@@ -15,7 +15,7 @@ const faqCategories = [
       },
       {
         q: 'Can I modify or cancel my order after placing it?',
-        a: 'Because production begins promptly, we allow changes or cancellations within 48 hours of order confirmation. Please contact concierge@heirest.com immediately.',
+        a: 'Because production begins promptly, we allow changes or cancellations within 48 hours of order confirmation. Please contact concierge@gemly.com immediately.',
       },
     ],
   },

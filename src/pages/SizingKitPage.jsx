@@ -12,7 +12,7 @@ const accordions = [
   {
     title: "What's in the kit?",
     content:
-      'The HEIREST Sizing Kit includes our precision ring multisizer belt (accurate to 0.25 sizes), millimeter bracelet measuring ribbon, international size conversion card, and instructions on measuring across different temperatures and finger knuckles.',
+      'The GEMLY Sizing Kit includes our precision ring multisizer belt (accurate to 0.25 sizes), millimeter bracelet measuring ribbon, international size conversion card, and instructions on measuring across different temperatures and finger knuckles.',
   },
   {
     title: 'How does the $15 credit work?',
@@ -86,7 +86,7 @@ export default function SizingKitPage() {
             </div>
 
             <div className="rounded bg-[#f9f8f6] p-3.5 border border-neutral-200 font-mono text-xs text-neutral-700">
-              ★ Includes a $15 store credit voucher redeemable against your next HEIREST fine jewellery piece.
+              ★ Includes a $15 store credit voucher redeemable against your next GEMLY fine jewellery piece.
             </div>
 
             <p className="text-sm text-neutral-600 leading-relaxed">

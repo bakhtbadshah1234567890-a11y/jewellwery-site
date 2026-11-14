@@ -6,7 +6,7 @@ const reviews = [
     badge: 'VERIFIED',
     rating: 5,
     quote:
-      'Couldn’t be happier with the decision to use HEIREST for my partner’s engagement ring. The ring is absolutely flawless - it has blown everyone away. My partner said the most common statement when friends see the ring is “Levi did so well”, I would love to take the credit but it’s really owed to Liam and his Team. Thanks again guys for creating such a beautiful piece that my partner is so very proud to wear.',
+      'Couldn’t be happier with the decision to use GEMLY for my partner’s engagement ring. The ring is absolutely flawless - it has blown everyone away. My partner said the most common statement when friends see the ring is “Levi did so well”, I would love to take the credit but it’s really owed to Liam and his Team. Thanks again guys for creating such a beautiful piece that my partner is so very proud to wear.',
   },
   {
     author: 'KATHERINE EL-RASSI',
@@ -20,28 +20,28 @@ const reviews = [
     badge: 'VERIFIED',
     rating: 5,
     quote:
-      'Purchased an infinity band and a pair of stud earrings for my wedding and I love them! The style came out exactly as I envisioned it in my head and the quality is truly impressive for the price point. As someone who owns pieces both from HEIREST and name brands that charge 2-3x markup, I’d say the craftsmanship definitely rivals the higher priced pieces.',
+      'Purchased an infinity band and a pair of stud earrings for my wedding and I love them! The style came out exactly as I envisioned it in my head and the quality is truly impressive for the price point. As someone who owns pieces both from GEMLY and name brands that charge 2-3x markup, I’d say the craftsmanship definitely rivals the higher priced pieces.',
   },
   {
     author: 'PAIGE HARRIS',
     badge: 'VERIFIED',
     rating: 5,
     quote:
-      'I am so grateful to the HEIREST team for their exceptional level of care bringing this very special piece to life. Every detail from the stone selection itself through to the finer engraving details have been so well considered and delivered with such an emphasis on quality.',
+      'I am so grateful to the GEMLY team for their exceptional level of care bringing this very special piece to life. Every detail from the stone selection itself through to the finer engraving details have been so well considered and delivered with such an emphasis on quality.',
   },
   {
     author: 'CATHERINE EMERSON',
     badge: 'VERIFIED',
     rating: 5,
     quote:
-      'Buying from HEIREST has been an absolute dream - top quality workmanship and diamonds, with a phenomenal price point. It has truly never been easier to buy a lifetime, heirloom piece. I’m so so glad they exist!',
+      'Buying from GEMLY has been an absolute dream - top quality workmanship and diamonds, with a phenomenal price point. It has truly never been easier to buy a lifetime, heirloom piece. I’m so so glad they exist!',
   },
   {
     author: 'MATT GANLEY',
     badge: 'VERIFIED',
     rating: 5,
     quote:
-      'We couldn’t be happier with the necklace and earrings purchased from HEIREST - the quality is genuinely incredible and the process couldn’t have been easier. We continue to receive compliments on both pieces, and have only good things to say about the HEIREST team. A great product, brand and team!',
+      'We couldn’t be happier with the necklace and earrings purchased from GEMLY - the quality is genuinely incredible and the process couldn’t have been easier. We continue to receive compliments on both pieces, and have only good things to say about the GEMLY team. A great product, brand and team!',
   },
 ]
 
