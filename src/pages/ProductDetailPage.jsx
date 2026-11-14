@@ -3,6 +3,9 @@ import { useParams, Link, useNavigate } from 'react-router-dom'
 import { getProductBySlug, PRODUCTS } from '../data/products'
 import { calculateCustomPrice, formatNZD } from '../utils/pricing'
 import { useCart } from '../context/useCart'
+import ProductImageLightbox from '../components/ProductImageLightbox'
+import ProductReviewsSection from '../components/ProductReviewsSection'
+import { getProductReviews } from '../data/reviewsData'
 
 const METAL_SWATCHES = {
   '9K Yellow Gold': '#D8C39A',
@@ -23,8 +26,13 @@ function ProductDetailContent({ slug }) {
     return getProductBySlug(slug) || PRODUCTS[0]
   }, [slug])
 
+  const galleryImages = useMemo(() => {
+    if (product.gallery && product.gallery.length > 0) return product.gallery
+    return [product.image, product.hoverImage || product.image]
+  }, [product])
+
   // Selected custom options initialized directly per slug mount
-  const [selectedImage, setSelectedImage] = useState(product.gallery?.[0] || product.image)
+  const [selectedImage, setSelectedImage] = useState(galleryImages[0] || product.image)
   const [selectedMetal, setSelectedMetal] = useState(product.metal || product.availableMetals?.[0] || '14K Yellow Gold')
   const [selectedGemstone, setSelectedGemstone] = useState(product.gemstone || product.availableGemstones?.[0] || 'White Lab Diamond')
   const [selectedShape, setSelectedShape] = useState(product.shapes?.[0] || 'Round')
@@ -34,6 +42,13 @@ function ProductDetailContent({ slug }) {
   const [quantity, setQuantity] = useState(1)
   const [activeTab, setActiveTab] = useState('description')
   const [addedBanner, setAddedBanner] = useState(false)
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false)
+  const [isReviewFormRequested, setIsReviewFormRequested] = useState(false)
+
+  // Get initial reviews count for badge
+  const initialReviews = useMemo(() => {
+    return getProductReviews(product.slug, product.category)
+  }, [product.slug, product.category])
 
   // Dynamic calculated price
   const currentPrice = useMemo(() => {
@@ -74,6 +89,17 @@ function ProductDetailContent({ slug }) {
     return PRODUCTS.filter((p) => p.category === product.category && p.id !== product.id).slice(0, 4)
   }, [product])
 
+  const currentImgIndex = galleryImages.indexOf(selectedImage) >= 0 ? galleryImages.indexOf(selectedImage) : 0
+
+  const scrollToReviews = (openForm = false) => {
+    setActiveTab('reviews')
+    if (openForm) {
+      setIsReviewFormRequested(true)
+    }
+    const el = document.getElementById('product-tabs-section')
+    if (el) el.scrollIntoView({ behavior: 'smooth' })
+  }
+
   return (
     <div className="pt-28 sm:pt-32 pb-24 bg-white text-neutral-900 min-h-screen">
       {/* Breadcrumbs */}
@@ -101,9 +127,9 @@ function ProductDetailContent({ slug }) {
           {/* ================= LEFT SIDE: IMAGE GALLERY ================= */}
           <div className="lg:col-span-7 flex flex-col-reverse sm:flex-row gap-4">
             {/* Thumbnail list */}
-            {product.gallery && product.gallery.length > 1 && (
+            {galleryImages.length > 1 && (
               <div className="flex sm:flex-col gap-3 overflow-x-auto sm:overflow-y-auto sm:w-20 shrink-0 pb-2 sm:pb-0">
-                {product.gallery.map((img, idx) => (
+                {galleryImages.map((img, idx) => (
                   <button
                     key={idx}
                     type="button"
@@ -120,16 +146,30 @@ function ProductDetailContent({ slug }) {
               </div>
             )}
 
-            {/* Primary interactive preview */}
-            <div className="relative flex-1 aspect-square rounded-lg bg-[#FAF9F6] border border-neutral-200 overflow-hidden flex items-center justify-center p-6 group">
+            {/* Primary interactive preview (CLICK TO FULLSCREEN) */}
+            <div
+              onClick={() => setIsLightboxOpen(true)}
+              className="relative flex-1 aspect-square rounded-lg bg-[#FAF9F6] border border-neutral-200 overflow-hidden flex items-center justify-center p-6 group cursor-zoom-in"
+              role="button"
+              tabIndex={0}
+              aria-label="Click on product picture to view full screen"
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') setIsLightboxOpen(true)
+              }}
+            >
               <img
                 src={selectedImage}
                 alt={product.name}
-                className="max-h-full max-w-full object-contain transition-transform duration-700 group-hover:scale-110"
+                className="max-h-full max-w-full object-contain transition-transform duration-700 group-hover:scale-105"
               />
-              <span className="absolute bottom-3 right-3 font-mono text-[10px] uppercase tracking-wider text-neutral-400 bg-white/80 px-2 py-0.5 rounded backdrop-blur-xs">
-                Hover to inspect
-              </span>
+
+              {/* Click for Fullscreen Pill */}
+              <div className="absolute bottom-3 right-3 flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-wider text-neutral-700 bg-white/95 px-3 py-1 rounded shadow-sm backdrop-blur-xs group-hover:bg-neutral-900 group-hover:text-white transition-colors">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="size-3">
+                  <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+                <span>Click for Fullscreen</span>
+              </div>
             </div>
           </div>
 
@@ -144,6 +184,28 @@ function ProductDetailContent({ slug }) {
             <h1 className="text-3xl sm:text-4xl font-normal tracking-tight text-neutral-900 leading-tight">
               {product.name}
             </h1>
+
+            {/* Reviews Option Star Rating Summary */}
+            <div className="mt-2.5 flex items-center gap-3">
+              <div className="flex text-amber-500 text-sm">
+                {'★★★★★'}
+              </div>
+              <button
+                type="button"
+                onClick={() => scrollToReviews(false)}
+                className="font-mono text-xs uppercase tracking-wider text-neutral-600 hover:text-neutral-900 underline"
+              >
+                {initialReviews.length} Client Reviews
+              </button>
+              <span className="text-neutral-300">•</span>
+              <button
+                type="button"
+                onClick={() => scrollToReviews(true)}
+                className="font-mono text-xs uppercase tracking-wider text-[#D6C2A1] hover:text-neutral-900 font-semibold"
+              >
+                + Write a Review
+              </button>
+            </div>
 
             {/* Price display */}
             <div className="mt-4 flex items-baseline gap-3 pb-6 border-b border-neutral-200">
@@ -385,12 +447,13 @@ function ProductDetailContent({ slug }) {
         </div>
 
         {/* ================= ACCORDION & DEEP DETAILS ================= */}
-        <div className="mt-20 border-t border-neutral-200 pt-12">
+        <div id="product-tabs-section" className="mt-20 border-t border-neutral-200 pt-12">
           {/* Tabs header */}
           <div className="flex flex-wrap border-b border-neutral-200 gap-6 sm:gap-10 font-mono text-xs uppercase tracking-widest">
             {[
               { id: 'description', label: 'Description & Philosophy' },
               { id: 'specifications', label: 'Specifications' },
+              { id: 'reviews', label: `Customer Reviews (${initialReviews.length})` },
               { id: 'craftsmanship', label: 'Artisanal Craftsmanship' },
               { id: 'shipping', label: 'Shipping & Delivery' },
               { id: 'warranty', label: 'Lifetime Warranty' },
@@ -440,6 +503,17 @@ function ProductDetailContent({ slug }) {
                   <span>Origin: Hand-finished in our dedicated jewellery ateliers</span>
                 </li>
               </ul>
+            )}
+
+            {activeTab === 'reviews' && (
+              <ProductReviewsSection
+                productSlug={product.slug}
+                productCategory={product.category}
+                productName={product.name}
+                selectedMetal={selectedMetal}
+                selectedCarat={selectedCarat}
+                autoOpenForm={isReviewFormRequested}
+              />
             )}
 
             {activeTab === 'craftsmanship' && (
@@ -525,6 +599,16 @@ function ProductDetailContent({ slug }) {
           </div>
         )}
       </div>
+
+      {/* Fullscreen Photo Lightbox Modal */}
+      <ProductImageLightbox
+        isOpen={isLightboxOpen}
+        onClose={() => setIsLightboxOpen(false)}
+        images={galleryImages}
+        currentIndex={currentImgIndex}
+        onIndexChange={(idx) => setSelectedImage(galleryImages[idx])}
+        productName={product.name}
+      />
     </div>
   )
 }

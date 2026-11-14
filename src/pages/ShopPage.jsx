@@ -3,6 +3,7 @@ import { useSearchParams, Link } from 'react-router-dom'
 import { PRODUCTS } from '../data/products'
 import { useCart } from '../context/useCart'
 import { formatNZD } from '../utils/pricing'
+import ProductImageLightbox from '../components/ProductImageLightbox'
 
 const CATEGORIES = ['ALL', 'RINGS', 'NECKLACES', 'EARRINGS', 'BRACELETS', 'PENDANTS']
 const COLLECTIONS = ['ALL', 'Bezel', 'Classic', 'Georgian', 'Tennis']
@@ -31,6 +32,7 @@ export default function ShopPage() {
   const [wishlist, setWishlist] = useState({})
   const [quickViewProduct, setQuickViewProduct] = useState(null)
   const [mobileFilterOpen, setMobileFilterOpen] = useState(false)
+  const [lightboxData, setLightboxData] = useState(null)
 
   // Sync category changes to URL
   const updateCategory = (newCat) => {
@@ -493,12 +495,29 @@ export default function ShopPage() {
             </button>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
-              <div className="aspect-square bg-[#FAF9F6] border border-neutral-200 rounded p-6">
+              <div
+                onClick={() => {
+                  setLightboxData({
+                    images: quickViewProduct.gallery && quickViewProduct.gallery.length > 0
+                      ? quickViewProduct.gallery
+                      : [quickViewProduct.image, quickViewProduct.hoverImage || quickViewProduct.image],
+                    index: 0,
+                    name: quickViewProduct.name,
+                  })
+                }}
+                className="aspect-square bg-[#FAF9F6] border border-neutral-200 rounded p-6 cursor-zoom-in relative group"
+                role="button"
+                tabIndex={0}
+                aria-label="Click for fullscreen view"
+              >
                 <img
                   src={quickViewProduct.image}
                   alt={quickViewProduct.name}
                   className="size-full object-contain"
                 />
+                <span className="absolute bottom-2 right-2 text-[10px] font-mono uppercase bg-white/95 px-2 py-0.5 rounded shadow-xs text-neutral-600 group-hover:bg-neutral-900 group-hover:text-white transition-colors">
+                  Click for Fullscreen
+                </span>
               </div>
 
               <div className="space-y-4">
@@ -644,6 +663,18 @@ export default function ShopPage() {
             </div>
           </div>
         </div>
+      )}
+
+      {/* Fullscreen Photo Lightbox Modal for Quick View */}
+      {lightboxData && (
+        <ProductImageLightbox
+          isOpen={Boolean(lightboxData)}
+          onClose={() => setLightboxData(null)}
+          images={lightboxData.images}
+          currentIndex={lightboxData.index}
+          onIndexChange={(idx) => setLightboxData((prev) => (prev ? { ...prev, index: idx } : null))}
+          productName={lightboxData.name}
+        />
       )}
     </div>
   )

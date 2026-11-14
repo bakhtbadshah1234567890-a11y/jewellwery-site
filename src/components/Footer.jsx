@@ -26,7 +26,7 @@ const customerLinks = [
   { name: 'Product Care', href: '/standards' },
   { name: 'Shipping', href: '/shipping' },
   { name: 'Warranty, Repairs & Returns', href: '/warranty' },
-  { name: 'Loyalty & Rewards', href: '/account' },
+  { name: 'Loyalty', href: '/account' },
 ]
 
 export default function Footer() {
