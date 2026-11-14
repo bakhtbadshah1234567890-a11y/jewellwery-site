@@ -11,7 +11,7 @@ export default function Necklace() {
       <p className="necklace-feature__story">
         Fine jewellery has long been shaped by convention,
         <br className="hidden sm:block" /> placing the decision in everyone&apos;s hands but yours.
-        <br className="hidden sm:block" /> HEIREST resets that standard: modern engineering,
+        <br className="hidden sm:block" /> GEMLY resets that standard: modern engineering,
         <br className="hidden sm:block" /> with a reverence for craft to create timeless pieces
         <br className="hidden sm:block" /> with total transparency.
       </p>

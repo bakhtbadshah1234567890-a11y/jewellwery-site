@@ -4,7 +4,7 @@ import { CartContext } from './cartContextDefinition.js'
 export function CartProvider({ children }) {
   const [cart, setCart] = useState(() => {
     try {
-      const saved = localStorage.getItem('heirest_cart')
+      const saved = localStorage.getItem('gemly_cart')
       return saved ? JSON.parse(saved) : [
         {
           id: 'sizing-kit-1',
@@ -26,7 +26,7 @@ export function CartProvider({ children }) {
 
   useEffect(() => {
     try {
-      localStorage.setItem('heirest_cart', JSON.stringify(cart))
+      localStorage.setItem('gemly_cart', JSON.stringify(cart))
     } catch {
       // ignore
     }

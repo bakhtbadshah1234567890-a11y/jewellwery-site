@@ -92,7 +92,7 @@ export default function AccountPage() {
                 <input
                   type="email"
                   required
-                  defaultValue="client@heirest.com"
+                  defaultValue="client@gemly.com"
                   className="w-full rounded border border-neutral-300 bg-white px-3 py-2.5 text-neutral-900 focus:border-neutral-900 focus:outline-none"
                 />
               </div>

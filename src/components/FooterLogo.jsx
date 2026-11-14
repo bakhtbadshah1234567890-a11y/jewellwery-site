@@ -7,7 +7,7 @@ export default function FooterLogo({ className = "h-40 w-auto" }) {
       viewBox="0 0 171 180"
       fill="none"
       className={className}
-      aria-label="HEIREST Monogram"
+      aria-label="GEMLY Monogram"
       role="img"
     >
       <path d="M143.834 16.9086C144.759 17.3062 145.83 16.8771 146.226 15.9506C146.623 15.0241 146.194 13.9522 145.269 13.5564C144.343 13.1588 143.272 13.5879 142.877 14.5144C142.479 15.4409 142.908 16.5128 143.834 16.9086Z" fill="#A2D4F3" />

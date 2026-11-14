@@ -38,7 +38,7 @@ export default function NewsletterSection() {
           id="newsletter-heading"
           className="text-3xl sm:text-5xl font-normal tracking-tight text-neutral-900 leading-tight"
         >
-          Join the HEIREST Circle
+          Join the GEMLY Circle
         </h2>
         <p className="mt-4 text-sm sm:text-base text-neutral-600 font-light leading-relaxed max-w-xl mx-auto">
           Receive confidential previews of rare gemstone releases, private trunk show invitations, and editorial essays on artisanal jewellery design.

@@ -1,15 +1,15 @@
 export const JOURNAL_POSTS = [
   {
     id: 1,
-    slug: 'what-documentation-comes-with-your-heirest-piece',
-    title: 'What documentation comes with your HEIREST piece',
+    slug: 'what-documentation-comes-with-your-gemly-piece',
+    title: 'What documentation comes with your GEMLY piece',
     category: 'CERTIFICATIONS & HERITAGE',
     date: 'OCTOBER 2026',
     readTime: '4 MIN READ',
     image: '/pics/journal-docs.jpg',
     excerpt:
       'From diamond grading certificates and independent valuations through to lifetime warranty documentation, every detail is accounted for with total transparency.',
-    content: `Every piece from HEIREST arrives with comprehensive documentation verifying its exact metal purity, gemstone carat weight, color grade, and structural specifications.
+    content: `Every piece from GEMLY arrives with comprehensive documentation verifying its exact metal purity, gemstone carat weight, color grade, and structural specifications.
 
 Our documentation package includes the official independent grading report from IGI or GIA for all center stones, an itemized valuation appraisal for insurance purposes, and your serial-numbered lifetime warranty registration card.
 
@@ -31,7 +31,7 @@ In addition to physical paper documentation, each client receives a digital pass
 
 The International Gemological Institute (IGI) and Gemological Institute of America (GIA) are the global benchmarks for unbiased gemstone assessment. While natural diamonds historically gravitated toward GIA, IGI emerged as the pioneer in grading laboratory-cultivated diamonds, utilizing spectroscopic analysis to evaluate growth techniques.
 
-Every HEIREST center diamond 0.50ct or larger features a microscopic laser inscription on its girdle. Invisible to the naked eye, this serial number matches your physical grading certificate, ensuring full authenticity and peace of mind whenever you bring your piece for cleaning or inspection.`,
+Every GEMLY center diamond 0.50ct or larger features a microscopic laser inscription on its girdle. Invisible to the naked eye, this serial number matches your physical grading certificate, ensuring full authenticity and peace of mind whenever you bring your piece for cleaning or inspection.`,
   },
   {
     id: 3,

@@ -261,7 +261,7 @@ export const PRODUCTS = [
     specifications: [
       'Solid 14K or 18K diamond-cut cable chain (1.1mm width)',
       'Four-prong open basket setting for full pavilion light return',
-      'Secure lobster claw clasp with branded HEIREST tag',
+      'Secure lobster claw clasp with branded GEMLY tag',
       'Adjustable 3-tier length loops: 38cm, 40cm, 42cm',
     ],
     craftsmanship:

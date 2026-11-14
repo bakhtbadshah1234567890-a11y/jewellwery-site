@@ -90,7 +90,7 @@ export default function ReturnsPage() {
               <span className="text-neutral-400 text-sm">Step 01</span>
               <h3 className="font-semibold text-neutral-900 uppercase mt-2 mb-1">Contact Concierge</h3>
               <p className="text-neutral-600 normal-case font-sans">
-                Email care@heirest.com with your order reference number and reason for return.
+                Email care@gemly.com with your order reference number and reason for return.
               </p>
             </div>
 

@@ -54,7 +54,7 @@ const steps = [
     title: 'Multi-Point Quality Control & Hallmarking',
     subtitle: 'Tension testing and laser stamping',
     description:
-      'Each piece undergoes ultrasonic testing, prong and bezel tension checks, and laser fineness hallmarking to certify metal karat purity and HEIREST authenticity.',
+      'Each piece undergoes ultrasonic testing, prong and bezel tension checks, and laser fineness hallmarking to certify metal karat purity and GEMLY authenticity.',
     tag: 'Certification',
   },
   {
@@ -79,7 +79,7 @@ export default function OurProcessPage() {
           How exceptional fine jewellery is born.
         </h1>
         <p className="mt-6 text-base sm:text-lg text-neutral-600 font-light leading-relaxed">
-          From the initial hand sketch to the final mirror polish, explore the eight meticulous stages every HEIREST piece undertakes in our dedicated workshop.
+          From the initial hand sketch to the final mirror polish, explore the eight meticulous stages every GEMLY piece undertakes in our dedicated workshop.
         </p>
       </div>
 

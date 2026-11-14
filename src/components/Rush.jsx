@@ -7,10 +7,10 @@ const publications = [
     quote:
       '“Innovative jewellery brand is celebrating its Australian launch on September 30 with a one-day pop up at Prim Haus in Sydney.” – RUSSH',
     paragraphs: [
-      'There will be more than 200 pieces available to try on, as well as access to HEIREST’s 3D configurator, so you can design your very own piece.',
+      'There will be more than 200 pieces available to try on, as well as access to GEMLY’s 3D configurator, so you can design your very own piece.',
     ],
     image: '/pics/rushh.webp',
-    imageAlt: 'RUSSH magazine feature with a HEIREST ring',
+    imageAlt: 'RUSSH magazine feature with a GEMLY ring',
   },
   {
     name: 'The Australian Women’s Weekly',
@@ -26,19 +26,19 @@ const publications = [
   {
     name: 'Together Journal',
     quote:
-      '“HEIREST’s digital configurator offers more than 250,000 possible combinations across metals, diamonds, gemstones, cuts, sizes and settings. Your selections are rendered in photorealistic 3D in real time, while the price changes as you make them.” – Together Journal',
+      '“GEMLY’s digital configurator offers more than 250,000 possible combinations across metals, diamonds, gemstones, cuts, sizes and settings. Your selections are rendered in photorealistic 3D in real time, while the price changes as you make them.” – Together Journal',
     paragraphs: [
-      'If a beautiful piece of jewellery has been sitting somewhere on your wish list, the timing of The HEIREST Experience in Sydney could hardly be better.',
+      'If a beautiful piece of jewellery has been sitting somewhere on your wish list, the timing of The GEMLY Experience in Sydney could hardly be better.',
     ],
     image: '/pics/together.webp',
-    imageAlt: 'Together Journal feature with a HEIREST diamond ring',
+    imageAlt: 'Together Journal feature with a GEMLY diamond ring',
   },
   {
     name: 'Elle',
     quote:
-      '“According to Liam Whittaker, founder of jeweller HEIREST, ‘The centre stone looks to be a cushion-cut fancy yellow diamond, surrounded by a halo of white diamonds.’” – Elle',
+      '“According to Liam Whittaker, founder of jeweller GEMLY, ‘The centre stone looks to be a cushion-cut fancy yellow diamond, surrounded by a halo of white diamonds.’” – Elle',
     paragraphs: [
-      'HEIREST founder, Liam Whittaker comments on the heirloom engagement ring of Milly Bobbie Brown. He adds, “The band appears to be either platinum or 18-karat white gold, with pavé-set white diamonds adding to the overall sparkle and presence of the ring.”',
+      'GEMLY founder, Liam Whittaker comments on the heirloom engagement ring of Milly Bobbie Brown. He adds, “The band appears to be either platinum or 18-karat white gold, with pavé-set white diamonds adding to the overall sparkle and presence of the ring.”',
     ],
     image: '/pics/elle.webp',
     imageAlt: 'Elle feature on an heirloom diamond engagement ring',
@@ -58,10 +58,10 @@ const publications = [
     quote:
       '“New Zealand business owner Liam Whittaker describes himself as ‘the least likely jewellery founder of all time’ – but then again, a fine jewellery brand that operates entirely online isn’t exactly the status quo.” – Remix',
     paragraphs: [
-      'But it’s not only the online component that sets HEIREST apart. Its other unique selling point is that customers are handed creative control, with every component – from the metal to the gemstone to the cut to the carat – being completely customisable.',
+      'But it’s not only the online component that sets GEMLY apart. Its other unique selling point is that customers are handed creative control, with every component – from the metal to the gemstone to the cut to the carat – being completely customisable.',
     ],
     image: '/pics/remix.webp',
-    imageAlt: 'Remix Magazine feature on HEIREST jewellery',
+    imageAlt: 'Remix Magazine feature on GEMLY jewellery',
   },
   {
     name: 'Screenshot This',
@@ -71,7 +71,7 @@ const publications = [
       'Zara Wong shares her stacking hack: “For whatever mood you want to be in; earrings worn conventionally across two lobes reads pulled together and conventionally polished, but doubled on one ear gives it more of a twist. And more, eye-catching sparkle.”',
     ],
     image: '/pics/screen.webp',
-    imageAlt: 'Screenshot This by Zara Wong feature on HEIREST earrings',
+    imageAlt: 'Screenshot This by Zara Wong feature on GEMLY earrings',
   },
   {
     name: 'NZ Herald',
@@ -81,26 +81,26 @@ const publications = [
       'NZ Herald Business captures how the brand is aiming to reset the category by combining modern engineering with complete visibility and control over every stage of the process, from design and pricing through to production.',
     ],
     image: '/pics/nz.webp',
-    imageAlt: 'NZ Herald feature on HEIREST jewellery',
+    imageAlt: 'NZ Herald feature on GEMLY jewellery',
   },
   {
     name: 'ausbiz',
     quote:
-      '“HEIREST offers more than 250,000 configurable options online, with fully dynamic pricing that adjusts in real time to choices such as stone size, metal type and setting.” – ausbiz',
+      '“GEMLY offers more than 250,000 configurable options online, with fully dynamic pricing that adjusts in real time to choices such as stone size, metal type and setting.” – ausbiz',
     paragraphs: [
       'Whittaker argues this transparency contrasts with traditional boutiques where prices are often opaque and the experience can feel overwhelming.',
     ],
     image: '/pics/ausbiz.webp',
-    imageAlt: 'ausbiz feature on the HEIREST custom jewellery experience',
+    imageAlt: 'ausbiz feature on the GEMLY custom jewellery experience',
   },
   {
     name: 'Style Machine',
-    quote: '“HEIREST’s Liam Whittaker on Lab-Grown Diamonds”',
+    quote: '“GEMLY’s Liam Whittaker on Lab-Grown Diamonds”',
     paragraphs: [
-      'HEIREST is the made-to-order fine jewellery brand making lab-grown diamonds feel like a treat you’re allowed to buy yourself. It has just launched in Australia, and its tennis bracelets and pinky rings are already the pieces everyone wants.',
+      'GEMLY is the made-to-order fine jewellery brand making lab-grown diamonds feel like a treat you’re allowed to buy yourself. It has just launched in Australia, and its tennis bracelets and pinky rings are already the pieces everyone wants.',
     ],
     image: '/pics/machine.webp',
-    imageAlt: 'Style Machine feature with a woman wearing HEIREST jewellery',
+    imageAlt: 'Style Machine feature with a woman wearing GEMLY jewellery',
   },
 ]
 
@@ -113,7 +113,7 @@ export default function Rush() {
       <div className="press-feature__publications">
         <p className="press-feature__eyebrow">As seen in</p>
         <h2 className="visually-hidden" id="press-feature-title">
-          HEIREST in the press
+          GEMLY in the press
         </h2>
         <ul>
           {publications.map((publication, index) => {

@@ -13,7 +13,7 @@ const BASELINE_REVIEWS = {
       verified: true,
       title: 'Flawless execution — blown away by the craftsmanship',
       comment:
-        'Couldn’t be happier with the decision to order my partner’s ring from HEIREST. The bezel is so smooth against the skin and the comfort curve on the inside shank makes it wearable 24/7. Friends constantly ask where she got it.',
+        'Couldn’t be happier with the decision to order my partner’s ring from GEMLY. The bezel is so smooth against the skin and the comfort curve on the inside shank makes it wearable 24/7. Friends constantly ask where she got it.',
       metalOrSpecs: '14K Yellow Gold • 1.00ct White Lab Diamond (Oval)',
       helpfulCount: 14,
     },
@@ -68,7 +68,7 @@ const BASELINE_REVIEWS = {
       verified: true,
       title: 'Lies completely flat — no flipping!',
       comment:
-        'My biggest pet peeve with tennis and solitaire necklaces is when they twist or flip backwards while moving. HEIREST’s articulation is genius; the bezel settings lie flush against the collarbone all day.',
+        'My biggest pet peeve with tennis and solitaire necklaces is when they twist or flip backwards while moving. GEMLY’s articulation is genius; the bezel settings lie flush against the collarbone all day.',
       metalOrSpecs: '14K Yellow Gold • 8.00ctw Brilliant Cut',
       helpfulCount: 18,
     },
@@ -206,7 +206,7 @@ export function getProductReviews(slug, category = 'RINGS') {
   const base = BASELINE_REVIEWS[cat] || BASELINE_REVIEWS.RINGS
 
   try {
-    const key = `heirest_product_reviews_${slug}`
+    const key = `gemly_product_reviews_${slug}`
     const stored = localStorage.getItem(key)
     if (stored) {
       const userAdded = JSON.parse(stored)
@@ -221,7 +221,7 @@ export function getProductReviews(slug, category = 'RINGS') {
 
 export function saveProductReview(slug, newReview) {
   try {
-    const key = `heirest_product_reviews_${slug}`
+    const key = `gemly_product_reviews_${slug}`
     const stored = localStorage.getItem(key)
     const list = stored ? JSON.parse(stored) : []
     const updated = [newReview, ...list]

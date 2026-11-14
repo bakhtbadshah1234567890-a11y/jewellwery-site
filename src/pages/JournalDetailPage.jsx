@@ -53,7 +53,7 @@ export default function JournalDetailPage() {
 
         {/* Share & Author bar */}
         <div className="mt-16 pt-8 border-t border-neutral-200 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 font-mono text-xs text-neutral-500 uppercase tracking-wider">
-          <div>Published by HEIREST Atelier Editorial Team</div>
+          <div>Published by GEMLY Atelier Editorial Team</div>
           <Link to="/journal" className="text-neutral-900 underline font-semibold">
             Return to Journal Archive
           </Link>

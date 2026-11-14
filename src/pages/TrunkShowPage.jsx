@@ -18,10 +18,10 @@ export default function TrunkShowPage() {
             Exclusive Live Event
           </p>
           <h1 className="text-4xl sm:text-6xl font-normal tracking-tight text-neutral-900 max-w-3xl">
-            Sisters & Co x HEIREST
+            Sisters & Co x GEMLY
           </h1>
           <p className="mt-4 text-base sm:text-lg text-neutral-600 max-w-2xl leading-relaxed">
-            Join us in Mount Maunganui, Tauranga for our summer trunk show! Discover the HEIREST range in person, explore custom options with founder Liam Whittaker, and create a piece entirely yours.
+            Join us in Mount Maunganui, Tauranga for our summer trunk show! Discover the GEMLY range in person, explore custom options with founder Liam Whittaker, and create a piece entirely yours.
           </p>
         </div>
 

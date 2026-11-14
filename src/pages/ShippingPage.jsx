@@ -96,7 +96,7 @@ export default function ShippingPage() {
               Discreet, Tamper-Evident Packaging
             </h2>
             <p className="text-neutral-600 leading-relaxed text-sm sm:text-base mb-4">
-              To safeguard surprise proposals and prevent security concerns, the exterior packaging reveals no mention of "jewellery", "diamonds", or "HEIREST".
+              To safeguard surprise proposals and prevent security concerns, the exterior packaging reveals no mention of "jewellery", "diamonds", or "GEMLY".
             </p>
             <p className="text-neutral-600 leading-relaxed text-sm sm:text-base">
               Inside the protective security box, your piece arrives enclosed in our signature keepsake box, velvet jewel pouch, polishing cloth, and signed certificate of authenticity.
