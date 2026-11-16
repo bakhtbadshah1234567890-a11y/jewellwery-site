@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
+import { AuthProvider } from './context/AuthContext.jsx'
 import { CartProvider } from './context/CartContext.jsx'
 import ScrollToTop from './components/ScrollToTop.jsx'
 import Header from './components/Header.jsx'
@@ -29,48 +30,52 @@ import CookiesPage from './pages/CookiesPage.jsx'
 import AccountPage from './pages/AccountPage.jsx'
 import FaqPage from './pages/FaqPage.jsx'
 import ContactPage from './pages/ContactPage.jsx'
+import AdminPortalPage from './pages/AdminPortalPage.jsx'
 
 export default function App() {
   return (
     <BrowserRouter>
-      <CartProvider>
-        <ScrollToTop />
-        <div className="min-h-screen bg-white text-neutral-900 antialiased selection:bg-neutral-900 selection:text-white flex flex-col justify-between">
-          <Header />
-          <CartDrawer />
-          <SearchModal />
+      <AuthProvider>
+        <CartProvider>
+          <ScrollToTop />
+          <div className="min-h-screen bg-white text-neutral-900 antialiased selection:bg-neutral-900 selection:text-white flex flex-col justify-between">
+            <Header />
+            <CartDrawer />
+            <SearchModal />
 
-          <main className="flex-1">
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/shop" element={<ShopPage />} />
-              <Route path="/products/:slug" element={<ProductDetailPage />} />
-              <Route path="/collections/:slug" element={<CollectionDetailPage />} />
-              <Route path="/bespoke" element={<BespokePage />} />
-              <Route path="/standards" element={<StandardsPage />} />
-              <Route path="/our-story" element={<OurStoryPage />} />
-              <Route path="/our-process" element={<OurProcessPage />} />
-              <Route path="/sizing-kits" element={<SizingKitPage />} />
-              <Route path="/trunk-show" element={<TrunkShowPage />} />
-              <Route path="/journal" element={<JournalPage />} />
-              <Route path="/journal/:slug" element={<JournalDetailPage />} />
-              <Route path="/shipping" element={<ShippingPage />} />
-              <Route path="/returns" element={<ReturnsPage />} />
-              <Route path="/warranty" element={<WarrantyPage />} />
-              <Route path="/privacy-policy" element={<PrivacyPage />} />
-              <Route path="/terms" element={<TermsPage />} />
-              <Route path="/cookies" element={<CookiesPage />} />
-              <Route path="/account" element={<AccountPage />} />
-              <Route path="/faq" element={<FaqPage />} />
-              <Route path="/contact" element={<ContactPage />} />
-              {/* Fallback route */}
-              <Route path="*" element={<HomePage />} />
-            </Routes>
-          </main>
+            <main className="flex-1">
+              <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/shop" element={<ShopPage />} />
+                <Route path="/products/:slug" element={<ProductDetailPage />} />
+                <Route path="/collections/:slug" element={<CollectionDetailPage />} />
+                <Route path="/bespoke" element={<BespokePage />} />
+                <Route path="/standards" element={<StandardsPage />} />
+                <Route path="/our-story" element={<OurStoryPage />} />
+                <Route path="/our-process" element={<OurProcessPage />} />
+                <Route path="/sizing-kits" element={<SizingKitPage />} />
+                <Route path="/trunk-show" element={<TrunkShowPage />} />
+                <Route path="/journal" element={<JournalPage />} />
+                <Route path="/journal/:slug" element={<JournalDetailPage />} />
+                <Route path="/shipping" element={<ShippingPage />} />
+                <Route path="/returns" element={<ReturnsPage />} />
+                <Route path="/warranty" element={<WarrantyPage />} />
+                <Route path="/privacy-policy" element={<PrivacyPage />} />
+                <Route path="/terms" element={<TermsPage />} />
+                <Route path="/cookies" element={<CookiesPage />} />
+                <Route path="/account" element={<AccountPage />} />
+                <Route path="/faq" element={<FaqPage />} />
+                <Route path="/contact" element={<ContactPage />} />
+                <Route path="/admin" element={<AdminPortalPage />} />
+                {/* Fallback route */}
+                <Route path="*" element={<HomePage />} />
+              </Routes>
+            </main>
 
-          <Footer />
-        </div>
-      </CartProvider>
+            <Footer />
+          </div>
+        </CartProvider>
+      </AuthProvider>
     </BrowserRouter>
   )
 }

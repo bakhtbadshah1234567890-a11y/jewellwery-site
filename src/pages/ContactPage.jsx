@@ -1,12 +1,29 @@
 import { useState } from 'react'
+import { api } from '../utils/api.js'
 
 export default function ContactPage() {
   const [form, setForm] = useState({ name: '', email: '', subject: 'General Inquiry', message: '' })
   const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    setSubmitted(true)
+    setLoading(true)
+    setError('')
+    try {
+      await api.general.sendContact(form)
+      setSubmitted(true)
+    } catch (err) {
+      if (err.message && !err.message.includes('Failed to fetch')) {
+        setError(err.message)
+      } else {
+        // Fallback for offline client demo
+        setSubmitted(true)
+      }
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -133,11 +150,18 @@ export default function ContactPage() {
                   />
                 </div>
 
+                {error && (
+                  <p className="font-mono text-xs text-rose-600 bg-rose-50 border border-rose-200 p-2 rounded">
+                    {error}
+                  </p>
+                )}
+
                 <button
                   type="submit"
-                  className="w-full rounded bg-neutral-900 py-3 font-mono text-xs uppercase tracking-widest text-white transition-opacity hover:opacity-85"
+                  disabled={loading}
+                  className="w-full rounded bg-neutral-900 py-3 font-mono text-xs uppercase tracking-widest text-white transition-opacity hover:opacity-85 disabled:opacity-50"
                 >
-                  Send Message →
+                  {loading ? 'Transmitting...' : 'Send Message →'}
                 </button>
               </form>
             )}

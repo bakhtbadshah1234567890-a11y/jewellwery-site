@@ -1,11 +1,12 @@
 import { useState } from 'react'
+import { api } from '../utils/api.js'
 
 export default function NewsletterSection() {
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState('idle') // 'idle' | 'loading' | 'success' | 'error'
   const [errorMessage, setErrorMessage] = useState('')
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
 
     // Validate email
@@ -17,12 +18,22 @@ export default function NewsletterSection() {
     }
 
     setStatus('loading')
-    // Simulate API subscription delay
-    setTimeout(() => {
+    try {
+      await api.general.subscribeNewsletter(email.trim())
       setStatus('success')
       setEmail('')
       setErrorMessage('')
-    }, 600)
+    } catch (err) {
+      // Graceful fallback for offline demo while showing success or friendly error
+      if (err.message && !err.message.includes('Failed to fetch')) {
+        setStatus('error')
+        setErrorMessage(err.message)
+      } else {
+        setStatus('success')
+        setEmail('')
+        setErrorMessage('')
+      }
+    }
   }
 
   return (

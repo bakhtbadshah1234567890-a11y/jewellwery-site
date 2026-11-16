@@ -1,4 +1,6 @@
-# Logs
+# Local scratch files
+scratch/
+
 logs
 *.log
 npm-debug.log*

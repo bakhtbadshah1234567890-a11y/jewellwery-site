@@ -1,9 +1,10 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import {
   getProductReviews,
   saveProductReview,
   calculateReviewStats,
 } from '../data/reviewsData'
+import { api } from '../utils/api'
 
 export default function ProductReviewsSection({
   productSlug,
@@ -21,6 +22,41 @@ export default function ProductReviewsSection({
   const [filterRating, setFilterRating] = useState('ALL')
   const [helpfulVotes, setHelpfulVotes] = useState({})
   const [submittedSuccess, setSubmittedSuccess] = useState(false)
+
+  // Fetch live reviews from backend API on mount
+  useEffect(() => {
+    let isMounted = true
+    api.reviews
+      .getBySlug(productSlug)
+      .then((res) => {
+        if (isMounted && res.success && res.reviews && res.reviews.length > 0) {
+          // Normalize API reviews with frontend format
+          const formatted = res.reviews.map((r) => ({
+            id: r._id || r.id,
+            author: r.author,
+            location: r.location,
+            date: new Intl.DateTimeFormat('en-US', {
+              month: 'long',
+              day: 'numeric',
+              year: 'numeric',
+            }).format(new Date(r.createdAt || Date.now())),
+            rating: r.rating,
+            verified: r.verified,
+            title: r.title,
+            comment: r.comment,
+            metalOrSpecs: r.metalOrSpecs,
+            helpfulCount: r.helpfulCount || 0,
+          }))
+          setReviews(formatted)
+        }
+      })
+      .catch(() => {
+        // Fallback to offline local reviews seamlessly
+      })
+    return () => {
+      isMounted = false
+    }
+  }, [productSlug])
 
   // Form State
   const [formRating, setFormRating] = useState(5)
@@ -40,9 +76,13 @@ export default function ProductReviewsSection({
         r.id === id ? { ...r, helpfulCount: (r.helpfulCount || 0) + 1 } : r
       )
     )
+    // Sync vote with backend if valid MongoDB ID
+    if (typeof id === 'string' && id.length === 24) {
+      api.reviews.voteHelpful(id).catch(() => {})
+    }
   }
 
-  const handleSubmitReview = (e) => {
+  const handleSubmitReview = async (e) => {
     e.preventDefault()
     if (!authorName.trim() || !reviewTitle.trim() || !reviewBody.trim()) return
 
@@ -62,6 +102,18 @@ export default function ProductReviewsSection({
       metalOrSpecs: `${selectedMetal} • ${selectedCarat}`,
       helpfulCount: 0,
     }
+
+    // Persist to backend MongoDB
+    api.reviews
+      .create(productSlug, {
+        author: newRev.author,
+        location: newRev.location,
+        rating: newRev.rating,
+        title: newRev.title,
+        comment: newRev.comment,
+        metalOrSpecs: newRev.metalOrSpecs,
+      })
+      .catch(() => {})
 
     saveProductReview(productSlug, newRev)
     setReviews((prev) => [newRev, ...prev])

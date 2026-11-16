@@ -130,6 +130,9 @@ export default function Footer() {
             <Link to="/cookies" className="hover:opacity-70 transition-opacity">
               COOKIES
             </Link>
+            <Link to="/admin" className="text-amber-300 hover:text-amber-200 font-bold transition-colors">
+              ATELIER ADMIN
+            </Link>
             <span className="hover:opacity-70 transition-opacity">
               SITE BY S/A
             </span>
