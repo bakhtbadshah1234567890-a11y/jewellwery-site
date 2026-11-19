@@ -16,6 +16,17 @@
       content="Explore heirloom rings, necklaces, earrings, bracelets, and bezel pendants with live bespoke metal and gemstone customization."
     />
     <meta property="og:type" content="website" />
+    <script>
+      (function() {
+        try {
+          const saved = localStorage.getItem('gemly_theme');
+          if (saved === 'dark' || (!saved && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            document.documentElement.setAttribute('data-theme', 'dark');
+          }
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

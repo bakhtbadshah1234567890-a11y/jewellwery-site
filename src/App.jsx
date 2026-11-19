@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
+import { ThemeProvider } from './context/ThemeContext.jsx'
 import { AuthProvider } from './context/AuthContext.jsx'
 import { CartProvider } from './context/CartContext.jsx'
 import ScrollToTop from './components/ScrollToTop.jsx'
@@ -35,13 +36,14 @@ import AdminPortalPage from './pages/AdminPortalPage.jsx'
 export default function App() {
   return (
     <BrowserRouter>
-      <AuthProvider>
-        <CartProvider>
-          <ScrollToTop />
-          <div className="min-h-screen bg-white text-neutral-900 antialiased selection:bg-neutral-900 selection:text-white flex flex-col justify-between">
-            <Header />
-            <CartDrawer />
-            <SearchModal />
+      <ThemeProvider>
+        <AuthProvider>
+          <CartProvider>
+            <ScrollToTop />
+            <div className="min-h-screen bg-white dark:bg-[#0c0c0e] text-neutral-900 dark:text-neutral-100 antialiased selection:bg-neutral-900 selection:text-white flex flex-col justify-between">
+              <Header />
+              <CartDrawer />
+              <SearchModal />
 
             <main className="flex-1">
               <Routes>
@@ -76,6 +78,7 @@ export default function App() {
           </div>
         </CartProvider>
       </AuthProvider>
-    </BrowserRouter>
-  )
+    </ThemeProvider>
+  </BrowserRouter>
+)
 }

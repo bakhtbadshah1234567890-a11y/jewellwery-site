@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useCart } from '../context/useCart'
+import ThemeToggle from './ThemeToggle'
 
 const announcements = [
   'COMPLIMENTARY INSURED WORLDWIDE EXPRESS SHIPPING ON ALL ORDERS',
@@ -270,6 +271,9 @@ export default function Header() {
               <SearchIcon />
             </button>
 
+            {/* Dark / Light Theme Toggle */}
+            <ThemeToggle />
+
             {/* Account */}
             <Link
               to="/account"
@@ -514,6 +518,7 @@ export default function Header() {
 
           <div className="pt-4 flex justify-between items-center text-[11px] text-neutral-500">
             <span>Currency: NZD ($)</span>
+            <ThemeToggle showLabel={true} />
             <Link
               to="/contact"
               onClick={() => setMenuOpen(false)}
